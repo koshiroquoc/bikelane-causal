@@ -49,7 +49,7 @@ Pass when M0.1–M0.4 are complete and the GitHub repository contains no ignored
 
 ### Milestones
 
-- [ ] **M1.0 — Extend candidate universe to 2025 installations**
+- [x] **M1.0 — Extend candidate universe to 2025 installations**
   - The preferred completion window (2024-07 through 2025-07) extends well into 2025, but the candidate universe from M0.4 covers only the 2024 CDOT tracker.
   - Extract 2025 protected-lane installations from the CDOT planned-projects tracker and Complete Streets updates into `data/reference/cdot_candidates_2025.csv`, same schema and snapshot conventions as the 2024 file.
   - This is the sanctioned way to grow the treated sample: expanding the candidate *universe* by a pre-stated criterion (completion window), before any outcome effects are examined. It is distinct from the prohibited rescues in the change-control rules (tuning radii or lane types after seeing results).
@@ -290,4 +290,4 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ## Immediate next action
 
-Complete M0.4, then M1.0 (extend the candidate universe to 2025 installations), then begin M1.1 by consolidating the official CDOT segments from both years into independent corridor candidates.
+Sync the completed M1.0 extract, then begin M1.1 by consolidating the 52 official 2024–2025 CDOT segments into independent corridor candidates.

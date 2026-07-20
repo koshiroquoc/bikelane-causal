@@ -31,6 +31,11 @@ The snapshots help identify candidate additions, but an exact row difference is 
 
 ## CDOT planned-project tracker
 
-`cdot_candidates_2024.csv` is a frozen extract of every 2024 row marked `Installed` and classified as either `Protected Bike Lane` or `Concrete Upgrade` in CDOT's published Planned Bike Projects workbook. It contains 37 segments.
+`cdot_candidates_2024.csv` and `cdot_candidates_2025.csv` are frozen extracts of every row in the respective year tab marked `Installed` and classified as either `Protected Bike Lane` or `Concrete Upgrade` in CDOT's published Planned Bike Projects workbook.
+
+- The 2024 extract contains 37 segments: 25 `Protected Bike Lane` and 12 `Concrete Upgrade`, totaling 15.17 miles.
+- The 2025 extract contains 15 segments: 13 `Protected Bike Lane` and 2 `Concrete Upgrade`, totaling 12.08 miles.
+
+Together they define the pre-outcome candidate universe for the project's stated completion window. The 2025 extension was fixed before any outcome effects were examined.
 
 The tracker is authoritative for installation year, facility type, limits, length, and status. It does **not** provide an installation month, so these rows are candidates rather than analysis-ready treatment records. Adjacent segments may also need to be consolidated into one corridor before counting independent treatments.
