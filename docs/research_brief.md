@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.1)
+# Project B — Research Brief (v0.3 — effect scale locked; PPML headline made conditional on staggered-robust specification and full P3 diagnostics; divergence thresholds fixed)
 
 ## Working title
 
@@ -16,7 +16,15 @@ Do newly completed protected bike-lane corridors in Chicago change the monthly n
 
 The average treatment effect on treated station-months: the change in monthly Divvy trip starts at stations near a newly completed protected bike-lane corridor, after completion, compared with the trips those stations would have recorded without that corridor.
 
-The final scale of the estimand (trip-count difference or percentage change) will be fixed after selecting an estimator that supports that interpretation. We will not mix effect scales across estimators.
+**Effect scale (locked before estimation): percentage change in monthly trip starts.** All headline numbers are reported as percentages with confidence intervals; no estimator's result is reported on a scale that cannot be mapped to a percentage change.
+
+**Estimator division of labor (locked before estimation):**
+
+- **Primary causal identification and dynamics:** the group-time ATT estimator (Callaway–Sant'Anna). Its event-study and cohort aggregations are the primary dynamic evidence, because it is robust to the negative-weighting bias of TWFE under staggered adoption. Its pre-treatment coefficients **inform the P3 identification decision together with the full diagnostic set** — raw pre-trends, station composition and churn, no-anticipation checks, treatment-timing quality, and control credibility. No single diagnostic certifies the design on its own; a clean CS pre-trend does not by itself license a causal reading of any other estimator.
+- **Headline percentage magnitude:** PPML, reported as `exp(β) − 1`, **conditional on all of**: (a) gate P3 passes; (b) the PPML sample reconciles with the group-time ATT sample; (c) the cohort aggregation shows no severe effect heterogeneity; and (d) the specification handles staggered adoption — cohort-stacked or event-time-saturated, not a single pooled `treated` dummy. A pooled PPML-TWFE with one treatment dummy is a transparency baseline only and is never the headline. If any condition fails, the headline comes from the group-time ATT, translated to the percentage scale with that translation's caveats stated.
+- Toolchain verification on a simulated DGP established only that the implementations run correctly and recover a known parameter in that DGP; it says nothing about identification or effect heterogeneity in the real data and confers no priority on any estimator.
+- Both estimators are always reported side by side on the same audited sample. A modest gap between them is expected (Jensen's inequality on the log outcome, different implicit weights) and is not grounds to prefer either.
+- **Divergence protocol (pre-specified).** The estimates diverge *materially* if (a) the point estimates have opposite signs and at least one exceeds 5% in absolute magnitude, or (b) they differ by more than 10 percentage points. Confidence intervals are always read alongside the points: two estimates whose intervals comfortably overlap around a common value are agreement, not divergence, regardless of sign or ratio. On material divergence, investigate in this order before reporting any headline: (1) confirm the two estimates use the same sample, the same estimand, and the same outcome scale; (2) small-station outliers dominating the log specification; (3) cohort-weight heterogeneity via the cohort aggregation; (4) event-time/cohort coding bugs checked against the raw pre-regression plots. The resolution is documented; the estimator giving the more favorable answer is never selected on that basis.
 
 ## Unit definitions
 
@@ -62,7 +70,7 @@ Therefore, missing station-months must not automatically be labeled zero until s
 
 Use staggered difference-in-differences with group-time treatment effects and an event-study representation. The main comparison should use never-treated or not-yet-treated stations that are geographically and behaviorally credible controls.
 
-PPML/TWFE may be included as a count-data baseline or robustness specification. It will not automatically be treated as the primary causal estimate when adoption is staggered and treatment effects may be heterogeneous.
+PPML enters per the locked division of labor above: it may supply the headline percentage magnitude only when the conditions stated there hold. Plain TWFE-OLS and pooled PPML-TWFE baselines are run first for transparency, with the known caveat that TWFE-style estimators under staggered adoption and heterogeneous effects can be biased by negative weighting.
 
 ## Feasibility gates
 

@@ -2,7 +2,7 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.1  
+**Plan version:** 0.3 (v0.2 added M1.0 2025-universe extension, estimator division of labor, geography placebo, fallback-city decision; v0.3 demotes pooled PPML to conditional headline with staggered-robust specification, widens the P3 diagnostic set beyond CS pre-trends, fixes the divergence thresholds, and requires matched pseudo-corridors in M5.8)  
 **Plan date:** 2026-07-20  
 **Expected remaining effort:** approximately 50–70 focused hours over 4–5 weeks.  
 **Current phase:** Phase 1 — Feasibility and treatment audit.
@@ -48,6 +48,11 @@ Pass when M0.1–M0.4 are complete and the GitHub repository contains no ignored
 **Target duration:** 4–6 focused days
 
 ### Milestones
+
+- [ ] **M1.0 — Extend candidate universe to 2025 installations**
+  - The preferred completion window (2024-07 through 2025-07) extends well into 2025, but the candidate universe from M0.4 covers only the 2024 CDOT tracker.
+  - Extract 2025 protected-lane installations from the CDOT planned-projects tracker and Complete Streets updates into `data/reference/cdot_candidates_2025.csv`, same schema and snapshot conventions as the 2024 file.
+  - This is the sanctioned way to grow the treated sample: expanding the candidate *universe* by a pre-stated criterion (completion window), before any outcome effects are examined. It is distinct from the prohibited rescues in the change-control rules (tuning radii or lane types after seeing results).
 
 - [ ] **M1.1 — Consolidate segments into corridors**
   - Group adjacent CDOT segments installed as one project.
@@ -100,6 +105,8 @@ The preferred design passes when:
 - recorded decision: `PASS`, `PASS WITH LIMITATIONS`, or `FAIL`
 
 If P1 fails, stop full causal development and choose one of three documented alternatives: narrow the claim, switch to a descriptive spatial study, or abandon Project B.
+
+**Fallback-city decision (recorded 2026-07-20):** a fourth option — rerunning the parameterized Project A ingestion for another city with better treatment data (e.g. NYC Citi Bike, where DOT publishes bike-lane installations with dates) — was considered and deliberately deferred. Reasons: it restarts treatment provenance and panel auditing from zero in an unfamiliar data environment, roughly doubles the remaining time budget, and invites scope creep mid-project. It is *not* on the menu of P1-failure responses. It may only be revisited as a full project pivot, decided fresh and re-planned from Phase 0, never as a mid-project rescue after seeing Chicago results.
 
 ---
 
@@ -184,10 +191,10 @@ Pass when the full analysis panel is reproduced by one command, all critical tes
 
 ### Milestones
 
-- [ ] **M4.1 — Simple baseline DiD:** transparent reference estimate.
-- [ ] **M4.2 — Primary group-time ATT:** estimator aligned with staggered adoption.
+- [ ] **M4.1 — Simple baselines:** TWFE-OLS and pooled PPML-TWFE with a single treatment dummy, as transparent reference estimates only — never headline candidates.
+- [ ] **M4.2 — Group-time ATT:** primary estimator for causal identification, dynamics, and cohort heterogeneity under staggered adoption; its pre-treatment coefficients inform the P3 decision together with the full diagnostic set, per the division of labor locked in the research brief.
 - [ ] **M4.3 — Event study:** dynamic effects and pre-treatment coefficients.
-- [ ] **M4.4 — Count-data specification:** PPML as a complementary specification, not automatic ground truth.
+- [ ] **M4.4 — Staggered-robust PPML:** develop a cohort-stacked or event-time-saturated PPML specification as the candidate for the headline percentage magnitude (`exp(β) − 1`). It is promoted to headline only under the conditions locked in the research brief (P3 pass, reconciled sample, no severe cohort heterogeneity, staggered-robust specification); otherwise the headline comes from M4.2 translated to the percentage scale. The pre-specified divergence protocol applies whenever M4.2 and M4.4 disagree materially.
 - [ ] **M4.5 — Inference:** corridor-clustered uncertainty and few-cluster correction where supported.
 - [ ] **M4.6 — Results registry:** every planned specification reported on the same audited sample with effect size and confidence interval.
 
@@ -208,7 +215,7 @@ Pass when all pre-specified estimators run on reconciled samples, results are ex
 
 **Purpose:** test whether the conclusion depends on one radius, corridor, control definition, or implementation artifact.
 
-**Estimated effort:** 8–12 hours  
+**Estimated effort:** 10–14 hours  
 **Target duration:** 3–5 focused days
 
 ### Required milestones
@@ -220,6 +227,7 @@ Pass when all pre-specified estimators run on reconciled samples, results are ex
 - [ ] **M5.5 — Treatment variant:** new protected lanes only versus all newly physically protected corridors.
 - [ ] **M5.6 — Outcome heterogeneity:** member versus casual trips.
 - [ ] **M5.7 — Timing placebo:** verify that a fake pre-treatment date does not reproduce the main effect.
+- [ ] **M5.8 — Geography placebo (matched pseudo-corridors, pipeline-level null distribution):** build a pool of pseudo-corridors from streets with no protected lane, **matched to the real treatment corridors** on corridor length, geographic area, nearby-station count, and baseline ridership/pre-period trend, and screened to exclude streets with concurrent transport projects or lying near a real treatment corridor. Each replication draws the same number of pseudo-corridors as real corridors and assigns install months preserving the real cohort distribution, then reruns the full assignment-to-estimate pipeline; 100–200 replications build the null ATT distribution, and the real estimate should sit in its tail. Matching is what gives the null distribution meaning — unmatched random streets (different density, ridership, geography) would produce an artificially easy null. This tests the entire pipeline, not just the model, and presupposes the one-command build from P2. If compute or time binds, reduce replications (e.g. to 50) rather than dropping the milestone or weakening the matching.
 
 ### Exit gate P5
 
@@ -230,6 +238,7 @@ Pass does not require every coefficient to be significant. It requires the repor
 - robustness table
 - radius-sensitivity figure
 - leave-one-corridor-out figure
+- geography-placebo null-distribution figure
 - falsification summary
 
 ---
@@ -281,4 +290,4 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ## Immediate next action
 
-Complete M0.4, then begin M1.1 by consolidating the 37 official 2024 CDOT segments into independent corridor candidates.
+Complete M0.4, then M1.0 (extend the candidate universe to 2025 installations), then begin M1.1 by consolidating the official CDOT segments from both years into independent corridor candidates.
