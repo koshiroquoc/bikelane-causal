@@ -1,0 +1,14 @@
+.DS_Store
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Project A data products are copied locally and are not committed.
+data/input/*.parquet
+
+# Reproducible derived outputs.
+data/derived/*
+!data/derived/.gitkeep
+
