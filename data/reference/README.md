@@ -28,3 +28,9 @@ Use the month the facility became usable, not the announcement, funding approval
 - `chicago_bike_routes_2022.geojson`: official deprecated end-of-2022 snapshot downloaded 2026-07-20 from dataset `9saw-v2cz`; 883 features, including 101 labeled `PROTECTED BIKE LANE`.
 
 The snapshots help identify candidate additions, but an exact row difference is not an installation-date source because street segmentation and route classifications can also change between snapshots.
+
+## CDOT planned-project tracker
+
+`cdot_candidates_2024.csv` is a frozen extract of every 2024 row marked `Installed` and classified as either `Protected Bike Lane` or `Concrete Upgrade` in CDOT's published Planned Bike Projects workbook. It contains 37 segments.
+
+The tracker is authoritative for installation year, facility type, limits, length, and status. It does **not** provide an installation month, so these rows are candidates rather than analysis-ready treatment records. Adjacent segments may also need to be consolidated into one corridor before counting independent treatments.

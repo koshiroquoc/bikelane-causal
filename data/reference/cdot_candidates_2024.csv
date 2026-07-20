@@ -1,0 +1,38 @@
+street,from_street,to_street,length_miles,facility,status,installation_year,source_url,snapshot_date
+16th,Central Park,Homan,0.25,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+16th,Spaulding,Kedzie,0.13,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+24th,Marshall,California,0.18,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+31st,Michigan,MLK,0.33,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+California,Schubert,George,0.30,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Canal,Roosevelt,Taylor,0.19,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Clark,Grand,Oak,0.62,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Commercial,93rd,90th,0.36,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Cortland,Ashland,Chicago River,0.18,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Damen,17th,14th,0.31,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Damen,Irving Park,Belle Plaine,0.13,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Damen,Garfield,51st,0.50,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Division,Kedzie,California,0.50,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Douglas,Independence,Sacramento,0.88,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Exchange,Anthony,South Chicago,0.11,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Franklin,Central Park,Sacramento,0.76,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Francisco,Lawrence,Ainslie,0.14,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Grand,Chicago,Damen,1.27,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Halsted,47th,Pershing,1.01,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Halsted,59th,47th,1.50,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Halsted,69th,66th,0.38,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Halsted,Roosevelt,Van Buren,0.66,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Harrison,Ashland,Halsted,1.00,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Homan,Arthington,Lexington,0.13,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Homan,Flournoy,Harrison,0.06,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Homan,Roosevelt,Greenshaw,0.07,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Jackson,Oakley,Hoyne,0.25,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Jackson,Damen,Ogden,0.30,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Keeler,Harrison,Congress,0.06,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Lincoln,Foster,Berwyn,0.13,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Milwaukee,California,Logan,0.56,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Milwaukee,Campbell,Maplewood,0.14,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Paulina,Congress,Warren,0.50,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Taylor,Morgan,Canal,0.61,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Wabash,Roosevelt,Balboa,0.39,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Western,33rd,Bross,0.03,Protected Bike Lane,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
+Wrightwood,Keeler,Pulaski,0.25,Concrete Upgrade,Installed,2024,https://www.chicago.gov/city/en/sites/complete-streets-chicago/home/bike-program/planned-bike-projects.html,2026-07-20
