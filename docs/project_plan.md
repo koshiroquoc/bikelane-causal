@@ -2,10 +2,10 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.3 (v0.2 added M1.0 2025-universe extension, estimator division of labor, geography placebo, fallback-city decision; v0.3 demotes pooled PPML to conditional headline with staggered-robust specification, widens the P3 diagnostic set beyond CS pre-trends, fixes the divergence thresholds, and requires matched pseudo-corridors in M5.8)  
+**Plan version:** 0.4 (v0.2 added M1.0 2025-universe extension, estimator division of labor, geography placebo, fallback-city decision; v0.3 tightened the estimator and placebo protocols; v0.4 records the completed Phase 1 audit and its `PASS WITH LIMITATIONS` decision)  
 **Plan date:** 2026-07-20  
 **Expected remaining effort:** approximately 50–70 focused hours over 4–5 weeks.  
-**Current phase:** Phase 1 — Feasibility and treatment audit.
+**Current phase:** Phase 2 — Reproducible analysis dataset.
 
 ## Status legend
 
@@ -23,20 +23,20 @@ No phase advances until its exit gate is explicitly recorded as `PASS`, `PASS WI
 **Purpose:** create an independent project, preserve Project A as read-only, and lock the research question before inspecting treatment effects.
 
 **Estimated effort:** 2–4 hours  
-**Status:** nearly complete
+**Status:** complete — `PASS` recorded 2026-07-20
 
 ### Milestones
 
 - [x] **M0.1 — Independent repository:** `bikelane-causal` exists as a separate Git repository.
 - [x] **M0.2 — Project A input contract:** `station_master.parquet` and `station_month_panel.parquet` copied and checksum-verified.
 - [x] **M0.3 — Research brief:** question, estimand, unit definitions, claims policy, and initial gates documented.
-- [~] **M0.4 — Official candidate universe:** 2024 CDOT tracker extracted to `data/reference/cdot_candidates_2024.csv` and synced to the GitHub repository.
+- [x] **M0.4 — Official candidate universe:** 2024 CDOT tracker extracted to `data/reference/cdot_candidates_2024.csv` and synced to the GitHub repository.
 
 ### Exit gate P0
 
 Pass when M0.1–M0.4 are complete and the GitHub repository contains no ignored parquet inputs.
 
-**Expected decision:** `PASS` after the candidate CSV is synced and verified.
+**Recorded decision:** `PASS` on 2026-07-20.
 
 ---
 
@@ -54,33 +54,34 @@ Pass when M0.1–M0.4 are complete and the GitHub repository contains no ignored
   - Extract 2025 protected-lane installations from the CDOT planned-projects tracker and Complete Streets updates into `data/reference/cdot_candidates_2025.csv`, same schema and snapshot conventions as the 2024 file.
   - This is the sanctioned way to grow the treated sample: expanding the candidate *universe* by a pre-stated criterion (completion window), before any outcome effects are examined. It is distinct from the prohibited rescues in the change-control rules (tuning radii or lane types after seeing results).
 
-- [ ] **M1.1 — Consolidate segments into corridors**
+- [x] **M1.1 — Consolidate segments into corridors**
   - Group adjacent CDOT segments installed as one project.
   - Keep geographically separate phases as separate corridors.
   - Produce `data/reference/corridor_candidates.csv` with one row per independent corridor.
 
-- [ ] **M1.2 — Lock treatment definition**
+- [x] **M1.2 — Lock treatment definition**
   - Primary proposed treatment: the first month a corridor gains physical bike-lane protection.
   - Track `new_protected` and `protection_upgrade` separately.
   - Pre-specify a robustness result using `new_protected` corridors only.
   - Record the final definition in `docs/research_brief.md` before examining outcome effects.
 
-- [ ] **M1.3 — Audit completion month and provenance**
-  - Find an opening/usable month for every candidate corridor.
+- [x] **M1.3 — Audit completion month and provenance**
+  - Audit every candidate corridor for an opening/usable month; leave the month empty and exclude the corridor when the available evidence cannot support one rather than imputing a date.
   - Store primary URL, corroborating URL, confidence grade, and ambiguity notes.
   - Exclude low-confidence timing from the primary sample.
+  - Result: 17 medium-confidence dated corridors, one dated fallback corridor, and 29 provenance-pending corridors explicitly excluded from the primary sample.
 
-- [ ] **M1.4 — Build preliminary corridor geometry and station assignment**
+- [x] **M1.4 — Build preliminary corridor geometry and station assignment**
   - Match corridor limits to official geometry.
   - Compute station distance in a meter-based CRS.
   - Count treated stations, donut exclusions, controls, and stations per corridor.
 
-- [ ] **M1.5 — Audit station integrity and observation windows**
+- [x] **M1.5 — Audit station integrity and observation windows**
   - Inspect station openings, closures, relocations, ID changes, and internal missing months.
   - Compute pre/post months for each corridor-station pair.
   - Do not automatically label missing station-months as zero.
 
-- [ ] **M1.6 — Design-size and power audit**
+- [x] **M1.6 — Design-size and power audit**
   - Count independent treated corridors, not only stations.
   - Measure corridor concentration and usable treated station-months.
   - Estimate a rough minimum detectable effect using the observed panel structure.
@@ -103,6 +104,8 @@ The preferred design passes when:
 - preliminary treatment/control map
 - `reports/feasibility_report.md`
 - recorded decision: `PASS`, `PASS WITH LIMITATIONS`, or `FAIL`
+
+**Recorded decision (2026-07-20): `PASS WITH LIMITATIONS`.** Twelve independent corridors and 40 stable treated stations are usable under the locked 300 m assignment rule; the largest corridor holds 27.5% of stable treated stations and the planning MDE is approximately 14–20%. Limitations requiring explicit Phase 2–5 handling are conservative first-verified timing for nine corridors, three multiple-exposure stations with different completion months, lack of monthly station coordinates, and one one-station corridor with a conspicuous preliminary pre-trend gap. See `reports/feasibility_report.md`.
 
 If P1 fails, stop full causal development and choose one of three documented alternatives: narrow the claim, switch to a descriptive spatial study, or abandon Project B.
 
@@ -290,4 +293,4 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ## Immediate next action
 
-Sync the completed M1.0 extract, then begin M1.1 by consolidating the 52 official 2024–2025 CDOT segments into independent corridor candidates.
+Begin M2.1: convert the Phase 1 audit script into the configured one-command data build, lock dependencies, and add critical data tests before constructing the analysis panel.

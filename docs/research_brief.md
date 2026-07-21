@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.3 — effect scale locked; PPML headline made conditional on staggered-robust specification and full P3 diagnostics; divergence thresholds fixed)
+# Project B — Research Brief (v0.4 — Phase 1 treatment definition and timing rules locked; estimator protocol unchanged)
 
 ## Working title
 
@@ -25,6 +25,15 @@ The average treatment effect on treated station-months: the change in monthly Di
 - Toolchain verification on a simulated DGP established only that the implementations run correctly and recover a known parameter in that DGP; it says nothing about identification or effect heterogeneity in the real data and confers no priority on any estimator.
 - Both estimators are always reported side by side on the same audited sample. A modest gap between them is expected (Jensen's inequality on the log outcome, different implicit weights) and is not grounds to prefer either.
 - **Divergence protocol (pre-specified).** The estimates diverge *materially* if (a) the point estimates have opposite signs and at least one exceeds 5% in absolute magnitude, or (b) they differ by more than 10 percentage points. Confidence intervals are always read alongside the points: two estimates whose intervals comfortably overlap around a common value are agreement, not divergence, regardless of sign or ratio. On material divergence, investigate in this order before reporting any headline: (1) confirm the two estimates use the same sample, the same estimand, and the same outcome scale; (2) small-station outliers dominating the log specification; (3) cohort-weight heterogeneity via the cohort aggregation; (4) event-time/cohort coding bugs checked against the raw pre-regression plots. The resolution is documented; the estimator giving the more favorable answer is never selected on that basis.
+
+## Treatment definition (locked after Phase 1, before effect estimation)
+
+- A corridor becomes treated when physical separation is first independently verified as usable over the documented CDOT segment or project. Announcement, funding, groundbreaking, and anticipated completion dates do not count.
+- `new_protected` and `protection_upgrade` are retained as separate treatment variants. The primary feasibility sample includes both; the required M5.5 robustness result uses `new_protected` only.
+- The verified completion month is a transition month and is excluded from estimation. `first_post_month` is the following calendar month; the 12-month pre-window ends immediately before the transition month.
+- A station within 300 m of multiple eligible corridors is assigned the earliest verified treatment month; ties are assigned to the nearest corridor while retaining a multiple-exposure flag.
+- Nine 2024 corridors use December as a conservative **first verified usable month** because CDOT records the installation year and a dated field audit documented the completed facilities on 2024-12-28/2025-01-01. These are medium-confidence dates, not claimed opening dates. Phase 4 must report an exact-date-only sensitivity result, and Phase 5 must test timing shifts for these corridors.
+- Corridors without a medium- or high-confidence month, without matched geometry, or without a stable Divvy station inside 300 m cannot enter the primary analysis. They remain in the inventory so exclusions are auditable.
 
 ## Unit definitions
 

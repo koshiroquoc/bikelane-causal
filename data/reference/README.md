@@ -39,3 +39,12 @@ The snapshots help identify candidate additions, but an exact row difference is 
 Together they define the pre-outcome candidate universe for the project's stated completion window. The 2025 extension was fixed before any outcome effects were examined.
 
 The tracker is authoritative for installation year, facility type, limits, length, and status. It does **not** provide an installation month, so these rows are candidates rather than analysis-ready treatment records. Adjacent segments may also need to be consolidated into one corridor before counting independent treatments.
+
+## Phase 1 corridor and station artifacts
+
+- `corridor_candidates.csv`: 47 independent corridor candidates consolidated from the 52 official 2024–2025 source segments.
+- `corridor_candidates.geojson`: 44 candidates matched to the official bike-route layer; match quality is recorded in the CSV and `reports/geometry_audit.csv`.
+- `treatment_inventory.csv`: one row per candidate with treatment variant, date provenance, geometry status, stable-station count, and primary eligibility. Twelve corridors are ready for the Phase 2 build.
+- `preliminary_station_assignment.csv`: all 2,154 Project A stations classified as treated, donut, candidate-corridor exclusion, or preliminary control. Distances use EPSG:26916 and the locked 300 m/800 m thresholds.
+
+The preliminary assignment retains the earliest verified treatment for stations near multiple corridors. It never converts a missing station-month to zero and requires all 12 pre and 12 post months for primary eligibility.

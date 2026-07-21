@@ -1,0 +1,6 @@
+geopandas==1.1.4
+matplotlib==3.11.1
+pandas==3.0.3
+pyarrow==25.0.0
+scipy==1.18.0
+statsmodels==0.14.6

@@ -1,0 +1,58 @@
+{
+  "source_segments": 52,
+  "independent_candidate_corridors": 47,
+  "candidate_geometries_matched": 44,
+  "primary_corridors": 17,
+  "usable_primary_corridors": 12,
+  "primary_date_confidence": {
+    "medium": 17
+  },
+  "stations_total": 2154,
+  "treated_stations": 73,
+  "stable_treated_stations": 40,
+  "donut_stations": 205,
+  "candidate_corridor_exclusions": 277,
+  "control_candidates": 1599,
+  "multi_exposure_treated": 9,
+  "multi_exposure_different_month": 3,
+  "possible_same_name_id_aliases": 110,
+  "primary_station_alias_flags": 0,
+  "stable_treated_by_corridor": {
+    "24TH_MARSHALL_CALIFORNIA_2024": 0,
+    "CLARK_GRAND_OAK_2024": 11,
+    "DOUGLAS_INDEPENDENCE_SACRAMENTO_2024": 0,
+    "FRANKLIN_CENTRAL_PARK_SACRAMENTO_2024": 1,
+    "GRAND_CHICAGO_DAMEN_2024": 5,
+    "HALSTED_ROOSEVELT_VAN_BUREN_2024": 5,
+    "MILWAUKEE_CALIFORNIA_LOGAN_2024": 2,
+    "WABASH_ROOSEVELT_BALBOA_2024": 6,
+    "16TH_CENTRAL_PARK_KEDZIE_2024": 1,
+    "CANAL_ROOSEVELT_TAYLOR_2024": 1,
+    "DAMEN_17TH_14TH_2024": 0,
+    "HARRISON_ASHLAND_HALSTED_2024": 2,
+    "HOMAN_ROOSEVELT_HARRISON_2024": 0,
+    "JACKSON_OAKLEY_OGDEN_2024": 2,
+    "KEELER_HARRISON_CONGRESS_2024": 0,
+    "PAULINA_CONGRESS_WARREN_2024": 1,
+    "TAYLOR_MORGAN_CANAL_2024": 3
+  },
+  "largest_corridor_station_share": 0.275,
+  "minimum_complete_local_controls": 12,
+  "median_abs_pretrend_gap_pct_points_per_month": 1.183,
+  "power_inputs": {
+    "balanced_stations_used": 608,
+    "two_way_fe_residual_sd_log1p": 0.3188,
+    "median_station_ar1": 0.5792,
+    "design_ar1_capped": 0.5792,
+    "independent_corridors": 12,
+    "mean_stable_treated_stations_per_corridor": 3.33,
+    "pre_months": 12,
+    "post_months": 12,
+    "power": 0.8,
+    "alpha_two_sided": 0.05
+  },
+  "mde_percent_range": [
+    14.4,
+    19.5
+  ]
+}
