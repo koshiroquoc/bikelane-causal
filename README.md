@@ -4,7 +4,7 @@ This project studies whether newly completed protected bike-lane corridors in Ch
 
 ## Current status
 
-**Phase 1 complete — `PASS WITH LIMITATIONS`.** The feasibility audit retains 12 independent corridors and 40 stable treated stations. The largest corridor accounts for 27.5% of the preliminary treated sample, and the planning MDE is approximately 14–20%. No treatment effect has been estimated.
+**Phase 2 complete — `PASS`.** The configured build produces an audited 33,018-row station-month panel containing 40 primary treated stations and 1,599 candidate controls across all 36 source months. Nine critical tests pass. No treatment effect has been estimated.
 
 The limitations are conservative first-verified timing for nine corridors, multiple-corridor exposure for a small number of stations, and the absence of monthly station coordinates. See [`reports/feasibility_report.md`](reports/feasibility_report.md).
 
@@ -35,6 +35,23 @@ Rebuild them with:
 MPLCONFIGDIR=.scratch/matplotlib .venv/bin/python scripts/build_phase1_audit.py
 ```
 
+## Reproducible Phase 2 build
+
+```bash
+make setup
+make phase2
+```
+
+`make phase2` rebuilds Phase 1 reference artifacts, creates the spatial assignment and station-month panel, writes the data-quality report, and runs the test suite. Derived Parquet files remain local and ignored by Git.
+
+Key tracked inputs and outputs:
+
+- `config/analysis.json`
+- `src/bikelane_causal/pipeline.py`
+- `tests/test_analysis_panel.py`
+- `reports/data_quality_report.md`
+- `reports/panel_build_summary.json`
+
 ## Immediate task
 
-Begin Phase 2 by turning the feasibility logic into the configured, tested one-command analysis-panel build. Causal estimation remains prohibited until the Phase 3 identification gate passes.
+Begin Phase 3 identification diagnostics and lock the control strategy before reading a headline treatment estimate.

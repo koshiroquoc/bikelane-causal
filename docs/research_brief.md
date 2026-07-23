@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.4 — Phase 1 treatment definition and timing rules locked; estimator protocol unchanged)
+# Project B — Research Brief (v0.5 — Phase 2 analysis-panel contract recorded; estimator protocol unchanged)
 
 ## Working title
 
@@ -6,7 +6,7 @@
 
 ## Status
 
-Planning and feasibility. No causal model will be estimated until the treatment-data and sample-size gates below pass.
+Phase 2 complete. The analysis panel is built and tested, but no causal model will be estimated until the Phase 3 identification gate passes.
 
 ## Research question
 
@@ -75,6 +75,20 @@ Observed audit on 2026-07-20:
 
 Therefore, missing station-months must not automatically be labeled zero until station activity, ID changes, temporary closure, and data-coverage behavior are audited.
 
+## Phase 2 analysis-panel contract
+
+The one-command `make phase2` build produces 33,018 observed station-month rows for 1,639 stations across 2023-07 through 2026-06:
+
+- 40 primary treated stations with complete 12-month pre and 12-month post windows.
+- 1,599 candidate controls screened to remain more than 800 m from every matched 2024–2025 candidate corridor.
+- 25 near-corridor stations excluded because they do not have the required 12/12 window.
+- 164 donut stations and 326 other candidate-corridor-nearby stations excluded from the analysis panel.
+- Four first-post cohorts: 2024-08, 2024-11, 2024-12, and 2025-01.
+
+Missing station-months are preserved: the Phase 2 build emits only rows present in Project A, marks every emitted outcome as observed, and performs no zero imputation. `event_time = 0` is the first full post month; the completion month is `event_time = -1`, flagged as a transition month and excluded by `analysis_row`.
+
+The broad and local control flags are candidates only. Phase 3, using pre-treatment information, must lock the actual control specification before any headline treatment estimate is read.
+
 ## Identification strategy (provisional)
 
 Use staggered difference-in-differences with group-time treatment effects and an event-study representation. The main comparison should use never-treated or not-yet-treated stations that are geographically and behaviorally credible controls.
@@ -104,8 +118,4 @@ If the gates fail, options are to narrow the research claim, change the outcome/
 
 ## Immediate next checkpoint
 
-Build a treatment inventory for candidate protected corridors completed in the preferred window, including:
-
-`corridor_id`, street limits, protected-lane type, completion month, geometry source, date source, source URL, and date-confidence grade.
-
-Only after this inventory is spatially joined to Project A stations will we decide whether Project B is feasible as designed.
+Complete Phase 3 using the frozen Phase 2 panel: plot raw calendar and event-time trends, compare broad versus local controls using pre-treatment information only, audit cohort composition and station churn, and record `PASS`, `PASS WITH LIMITATIONS`, or `FAIL` before reading a headline ATT.

@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .ipynb_checkpoints/
+.scratch/
 
 # Project A data products are copied locally and are not committed.
 data/input/*.parquet
@@ -11,4 +12,4 @@ data/input/*.parquet
 # Reproducible derived outputs.
 data/derived/*
 !data/derived/.gitkeep
-
+!data/derived/README.md

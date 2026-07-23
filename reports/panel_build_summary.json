@@ -1,0 +1,43 @@
+{
+  "analysis_panel_months": 36,
+  "analysis_panel_rows": 33018,
+  "analysis_panel_sha256": "97a8d70b6a84fd491709400dbf000d3cd57a6ea8544c82c6b0100550c3759944",
+  "analysis_panel_stations": 1639,
+  "analysis_role_counts": {
+    "control_candidate": 1599,
+    "excluded": 490,
+    "primary_treated": 40,
+    "treated_ineligible_missing_window": 25
+  },
+  "analysis_stations_with_internal_missing": 883,
+  "assignment_counts": {
+    "candidate_corridor_exclusion": 326,
+    "control_candidate": 1599,
+    "donut": 164,
+    "treated": 65
+  },
+  "assignment_rows": 2154,
+  "donut_outer_m": 800.0,
+  "duplicate_station_months": 0,
+  "eligible_controls_by_cohort": {
+    "2024-08": 391,
+    "2024-11": 403,
+    "2024-12": 408,
+    "2025-01": 406
+  },
+  "expected_panel_rows": 33018,
+  "input_panel_rows": 45066,
+  "input_station_rows": 2154,
+  "local_control_outer_m": 3000.0,
+  "missing_month_policy": "preserve_missing",
+  "multiple_exposure_treated_stations": 8,
+  "negative_outcome_rows": 0,
+  "panel_first_month": "2023-07",
+  "panel_last_month": "2026-06",
+  "panel_row_difference": 0,
+  "primary_treated_corridors": 12,
+  "project_crs": "EPSG:26916",
+  "transition_policy": "exclude_completion_month",
+  "transition_rows": 40,
+  "treated_radius_m": 300.0
+}

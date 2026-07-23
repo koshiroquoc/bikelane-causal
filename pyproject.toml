@@ -1,7 +1,24 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "bikelane-causal"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.12"
-dependencies = []
+description = "Reproducible spatial panel for protected bike lanes and Divvy ridership"
+requires-python = ">=3.11"
+dependencies = [
+  "geopandas==1.1.4",
+  "matplotlib==3.11.1",
+  "pandas==3.0.3",
+  "pyarrow==25.0.0",
+  "scipy==1.18.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.0.2"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

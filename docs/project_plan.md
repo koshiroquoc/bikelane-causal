@@ -2,10 +2,10 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.4 (v0.2 added M1.0 2025-universe extension, estimator division of labor, geography placebo, fallback-city decision; v0.3 tightened the estimator and placebo protocols; v0.4 records the completed Phase 1 audit and its `PASS WITH LIMITATIONS` decision)  
-**Plan date:** 2026-07-20  
-**Expected remaining effort:** approximately 50–70 focused hours over 4–5 weeks.  
-**Current phase:** Phase 2 — Reproducible analysis dataset.
+**Plan version:** 0.5 (v0.4 records the completed Phase 1 audit; v0.5 records the configured, tested Phase 2 panel build and its `PASS` decision)  
+**Plan date:** 2026-07-21  
+**Expected remaining effort:** approximately 32–48 focused hours over 3–4 weeks.  
+**Current phase:** Phase 3 — Identification diagnostics and control design.
 
 ## Status legend
 
@@ -122,19 +122,19 @@ If P1 fails, stop full causal development and choose one of three documented alt
 
 ### Milestones
 
-- [ ] **M2.1 — Minimal Python environment and config**
+- [x] **M2.1 — Minimal Python environment and config**
   - Add only dependencies needed for spatial work, tables, estimation, plots, and tests.
   - Put radii, minimum pre/post periods, and input paths in config.
 
-- [ ] **M2.2 — Spatial assignment pipeline**
+- [x] **M2.2 — Spatial assignment pipeline**
   - Create treated, donut-excluded, and candidate-control groups.
   - Support multiple nearby corridors and earliest valid treatment month.
 
-- [ ] **M2.3 — Station-month panel builder**
+- [x] **M2.3 — Station-month panel builder**
   - Join outcome data, station attributes, corridor assignment, treatment timing, and event time.
   - Implement the documented missing-month policy.
 
-- [ ] **M2.4 — Data tests and audit report**
+- [x] **M2.4 — Data tests and audit report**
   - No duplicate station-months.
   - Treatment is monotonic after activation.
   - Event time is correct at boundaries.
@@ -144,6 +144,8 @@ If P1 fails, stop full causal development and choose one of three documented alt
 ### Exit gate P2
 
 Pass when the full analysis panel is reproduced by one command, all critical tests pass, and row/station/corridor counts reconcile with the feasibility report.
+
+**Recorded decision (2026-07-21): `PASS`.** `make phase2` rebuilds the source audit, spatial assignment, cohort-specific control eligibility, and 33,018-row station-month panel before running nine critical tests. The build contains 40 primary treated and 1,599 candidate-control stations across all 36 source months; no duplicate keys, negative outcomes, or imputed missing months were found. See `reports/data_quality_report.md`.
 
 ### P2 deliverables
 

@@ -1,0 +1,26 @@
+{
+  "project_crs": "EPSG:26916",
+  "treated_radius_m": 300,
+  "donut_outer_m": 800,
+  "local_control_outer_m": 3000,
+  "required_pre_months": 12,
+  "required_post_months": 12,
+  "transition_policy": "exclude_completion_month",
+  "missing_month_policy": "preserve_missing",
+  "multiple_exposure_policy": "earliest_completion_then_nearest",
+  "primary_treatment_variants": [
+    "new_protected",
+    "protection_upgrade"
+  ],
+  "paths": {
+    "station_master": "data/input/station_master.parquet",
+    "station_month_panel": "data/input/station_month_panel.parquet",
+    "treatment_inventory": "data/reference/treatment_inventory.csv",
+    "corridor_geometry": "data/reference/corridor_candidates.geojson",
+    "station_assignment": "data/derived/station_corridor_assignment.parquet",
+    "control_cohort_eligibility": "data/derived/control_cohort_eligibility.parquet",
+    "analysis_panel": "data/derived/station_month_analysis.parquet",
+    "build_summary": "reports/panel_build_summary.json",
+    "quality_report": "reports/data_quality_report.md"
+  }
+}
