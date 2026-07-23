@@ -4,7 +4,7 @@ This project studies whether newly completed protected bike-lane corridors in Ch
 
 ## Current status
 
-**Phase 2 complete — `PASS`.** The configured build produces an audited 33,018-row station-month panel containing 40 primary treated stations and 1,599 candidate controls across all 36 source months. Nine critical tests pass. No treatment effect has been estimated.
+**Phase 3 complete — `PASS WITH LIMITATIONS`.** Phase 3A compares broad, cohort-local, and pre-period-matched control pools; Phase 3B locks 120 matched control assignments (3 per treated station) and runs pre-treatment-only placebo-lead diagnostics. The treated-station-weighted matched raw pre-trend gap is 0.21 percentage points per month, but the two-way-clustered four-bin lead test rejects exact zero (`F(4,11) = 4.41`, `p = 0.023`) and balance remains weak in two sparse cohorts. Phase 4 may proceed, but causal claims must remain narrow and conditional. No post-treatment ATT has been estimated.
 
 The limitations are conservative first-verified timing for nine corridors, multiple-corridor exposure for a small number of stations, and the absence of monthly station coordinates. See [`reports/feasibility_report.md`](reports/feasibility_report.md).
 
@@ -52,6 +52,11 @@ Key tracked inputs and outputs:
 - `reports/data_quality_report.md`
 - `reports/panel_build_summary.json`
 
-## Immediate task
+## Reproducible Phase 3 checkpoints
 
-Begin Phase 3 identification diagnostics and lock the control strategy before reading a headline treatment estimate.
+```bash
+make phase3a  # raw trends, control comparison, matching, composition
+make phase3b  # pre-treatment leads and identification gate
+```
+
+The next task is Phase 4 estimation on the locked matched sample. Group-time ATT remains the primary identification/dynamics estimator; staggered-robust PPML is a conditional candidate for the headline percentage magnitude.

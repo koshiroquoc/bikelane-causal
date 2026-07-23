@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.5 — Phase 2 analysis-panel contract recorded; estimator protocol unchanged)
+# Project B — Research Brief (v0.6 — Phase 3 control design and identification gate recorded)
 
 ## Working title
 
@@ -6,7 +6,7 @@
 
 ## Status
 
-Phase 2 complete. The analysis panel is built and tested, but no causal model will be estimated until the Phase 3 identification gate passes.
+Phase 3 complete with `PASS WITH LIMITATIONS`. The matched control design is frozen and Phase 4 estimation is authorized, but the pre-treatment lead warning and sparse-cohort balance prevent an unconditional causal claim.
 
 ## Research question
 
@@ -87,9 +87,13 @@ The one-command `make phase2` build produces 33,018 observed station-month rows 
 
 Missing station-months are preserved: the Phase 2 build emits only rows present in Project A, marks every emitted outcome as observed, and performs no zero imputation. `event_time = 0` is the first full post month; the completion month is `event_time = -1`, flagged as a transition month and excluded by `analysis_row`.
 
-The broad and local control flags are candidates only. Phase 3, using pre-treatment information, must lock the actual control specification before any headline treatment estimate is read.
+## Phase 3 locked control and identification contract
 
-## Identification strategy (provisional)
+The primary specification uses never-treated controls with complete cohort-specific 12/12 windows. For each cohort, controls must be within 3 km of a corridor treated in that cohort and remain outside the 800 m exclusion zone around every 2024–2025 candidate corridor. Three controls are matched without replacement within cohort to every treated station using only four 12-month pre-treatment features: mean, slope, and variability of `log(1 + total trips)`, plus member-trip share. The 120 frozen assignments and their checksum are recorded in `reports/phase3_control_matches.csv` and `reports/phase3_identification_decision.md`. Broad and unmatched cohort-local pools are sensitivity specifications only.
+
+The treated-station-weighted raw matched pre-trend gap is 0.21 percentage points per month, but the four-bin pre-treatment lead test, two-way clustered by treated corridor and reused control station, rejects exact zero (`F(4,11) = 4.41`, `p = 0.023`) and the largest individual placebo lead is −16.3%. The pre-specified automatic-failure rule requires both joint `p < 0.05` and an absolute lead of at least 20%; only the first condition is met. Balance also remains weak in the sparse 2024-11 and 2024-12 cohorts. Consequently P3 is `PASS WITH LIMITATIONS`: Phase 4 may estimate the pre-specified models, but causal language must be conditional, the full lead pattern must accompany the main result, and sensitivity results cannot be used to hide the warning.
+
+## Identification strategy (locked for Phase 4)
 
 Use staggered difference-in-differences with group-time treatment effects and an event-study representation. The main comparison should use never-treated or not-yet-treated stations that are geographically and behaviorally credible controls.
 
@@ -118,4 +122,4 @@ If the gates fail, options are to narrow the research claim, change the outcome/
 
 ## Immediate next checkpoint
 
-Complete Phase 3 using the frozen Phase 2 panel: plot raw calendar and event-time trends, compare broad versus local controls using pre-treatment information only, audit cohort composition and station churn, and record `PASS`, `PASS WITH LIMITATIONS`, or `FAIL` before reading a headline ATT.
+Run Phase 4 on the frozen Phase 3 matched sample. Reconcile group-time ATT and staggered-robust PPML on the same observations, report the full cohort/event-time structure, and carry the P3 pre-treatment warning into every causal interpretation.

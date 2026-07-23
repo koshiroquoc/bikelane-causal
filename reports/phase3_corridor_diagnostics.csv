@@ -1,0 +1,13 @@
+corridor_id,first_post_month,treated_stations,date_confidence,multiple_exposure_stations,pre_level_gap_log_points_vs_matched,pretrend_gap_pct_points_per_month_vs_matched,singleton_corridor,corridor_pretrend_warning
+16TH_CENTRAL_PARK_KEDZIE_2024,2025-01,1,medium,0,-4.405916,2.736927,True,False
+CANAL_ROOSEVELT_TAYLOR_2024,2025-01,1,medium,1,0.083912,1.623368,True,False
+CLARK_GRAND_OAK_2024,2024-08,11,medium,0,0.629787,-0.459935,False,False
+FRANKLIN_CENTRAL_PARK_SACRAMENTO_2024,2024-11,1,medium,0,-1.711879,1.109947,True,False
+GRAND_CHICAGO_DAMEN_2024,2024-08,5,medium,0,-1.389166,2.224953,False,False
+HALSTED_ROOSEVELT_VAN_BUREN_2024,2024-12,5,medium,3,0.128829,-0.195849,False,False
+HARRISON_ASHLAND_HALSTED_2024,2025-01,2,medium,0,0.676472,-1.719110,False,False
+JACKSON_OAKLEY_OGDEN_2024,2025-01,2,medium,0,-0.759840,-0.240043,False,False
+MILWAUKEE_CALIFORNIA_LOGAN_2024,2025-01,2,medium,0,0.052349,-2.002363,False,False
+PAULINA_CONGRESS_WARREN_2024,2025-01,1,medium,1,0.399718,-1.432632,True,False
+TAYLOR_MORGAN_CANAL_2024,2025-01,3,medium,3,-0.148261,-0.927062,False,False
+WABASH_ROOSEVELT_BALBOA_2024,2025-01,6,medium,0,0.967947,1.659039,False,False

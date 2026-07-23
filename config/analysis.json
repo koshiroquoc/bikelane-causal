@@ -8,6 +8,22 @@
   "transition_policy": "exclude_completion_month",
   "missing_month_policy": "preserve_missing",
   "multiple_exposure_policy": "earliest_completion_then_nearest",
+  "phase3": {
+    "matching_controls_per_treated": 3,
+    "matching_features": [
+      "pre_mean_log1p",
+      "pre_slope_log1p",
+      "pre_sd_log1p",
+      "pre_member_share"
+    ],
+    "pretrend_warning_pct_points_per_month": 2.0,
+    "pretrend_fail_pct_points_per_month": 2.0,
+    "corridor_warning_pct_points_per_month": 3.0,
+    "balance_warning_abs_smd": 0.5,
+    "lead_joint_alpha": 0.05,
+    "lead_materiality_percent": 20.0,
+    "lead_warning_percent": 10.0
+  },
   "primary_treatment_variants": [
     "new_protected",
     "protection_upgrade"
@@ -20,6 +36,17 @@
     "station_assignment": "data/derived/station_corridor_assignment.parquet",
     "control_cohort_eligibility": "data/derived/control_cohort_eligibility.parquet",
     "analysis_panel": "data/derived/station_month_analysis.parquet",
+    "phase3_matches": "reports/phase3_control_matches.csv",
+    "phase3_control_comparison": "reports/phase3_control_comparison.csv",
+    "phase3_corridor_diagnostics": "reports/phase3_corridor_diagnostics.csv",
+    "phase3_calendar_series": "reports/phase3_calendar_series.csv",
+    "phase3_event_series": "reports/phase3_event_time_series.csv",
+    "phase3a_summary": "reports/phase3a_summary.json",
+    "phase3a_report": "reports/phase3a_diagnostics.md",
+    "phase3_pretrend_leads": "reports/phase3_pretrend_leads.csv",
+    "phase3_pretrend_leads_summary": "reports/phase3_pretrend_leads_summary.json",
+    "phase3_gate_report": "reports/phase3_identification_decision.md",
+    "phase3_gate_summary": "reports/phase3_gate_summary.json",
     "build_summary": "reports/panel_build_summary.json",
     "quality_report": "reports/data_quality_report.md"
   }

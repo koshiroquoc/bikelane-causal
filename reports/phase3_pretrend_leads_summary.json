@@ -1,0 +1,51 @@
+{
+  "control_station_clusters": 83,
+  "corridor_clusters": 12,
+  "diagnostic": "pre-treatment-only matched-panel group-time placebo leads",
+  "individually_warned_leads": [
+    -6
+  ],
+  "inference_note": "Two-way clustered by treated corridor and control station; t reference uses 11 corridor degrees of freedom. Four-bin joint F test used because 11 separate leads are too many for 12 corridors.",
+  "joint_f_df_den": 11,
+  "joint_f_df_num": 4,
+  "joint_f_pvalue": 0.022650910434279335,
+  "joint_f_statistic": 4.414753515779674,
+  "joint_test_bins": {
+    "-10:-8": [
+      -10,
+      -9,
+      -8
+    ],
+    "-13:-11": [
+      -13,
+      -12,
+      -11
+    ],
+    "-4:-3": [
+      -4,
+      -3
+    ],
+    "-7:-5": [
+      -7,
+      -6,
+      -5
+    ]
+  },
+  "lead_event_times": [
+    -13,
+    -12,
+    -11,
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3
+  ],
+  "max_abs_lead_percent": 16.277671931896098,
+  "post_treatment_outcomes_used": false,
+  "reference_event_time": -2,
+  "treated_stations": 40
+}

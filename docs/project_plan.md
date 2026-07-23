@@ -2,10 +2,10 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.5 (v0.4 records the completed Phase 1 audit; v0.5 records the configured, tested Phase 2 panel build and its `PASS` decision)  
-**Plan date:** 2026-07-21  
-**Expected remaining effort:** approximately 32–48 focused hours over 3–4 weeks.  
-**Current phase:** Phase 3 — Identification diagnostics and control design.
+**Plan version:** 0.6 (v0.6 records the split Phase 3A/3B workflow, locked matched controls, and P3 decision)
+**Plan date:** 2026-07-22
+**Expected remaining effort:** approximately 24–36 focused hours over 2–3 weeks.
+**Current phase:** Phase 4 — Main estimation.
 
 ## Status legend
 
@@ -165,11 +165,16 @@ Pass when the full analysis panel is reproduced by one command, all critical tes
 
 ### Milestones
 
-- [ ] **M3.1 — Raw trends:** plot treated and candidate controls by calendar month and cohort.
-- [ ] **M3.2 — Raw event-time view:** inspect outcome differences before regression.
-- [ ] **M3.3 — Control strategy:** compare broad, local, and pre-trend-compatible control pools.
-- [ ] **M3.4 — Pre-treatment diagnostics:** inspect leads, composition changes, station churn, and corridor-specific anomalies.
-- [ ] **M3.5 — Identification decision:** lock the primary control group and state whether the final claim may be causal or must remain descriptive.
+#### Phase 3A — Control construction and raw diagnostics
+
+- [x] **M3.1 — Raw trends:** plot treated and candidate controls by calendar month and cohort.
+- [x] **M3.2 — Raw event-time view:** inspect outcome differences before regression.
+- [x] **M3.3 — Control strategy:** compare broad, cohort-local, and pre-period-matched control pools. Lock 3 unique controls per treated station using only 12-month pre-period mean, slope, variability, and member share.
+
+#### Phase 3B — Identification gate
+
+- [x] **M3.4 — Pre-treatment diagnostics:** inspect raw slopes, matched balance, composition, station churn, corridor anomalies, and pre-treatment-only group-time placebo leads with corridor-clustered uncertainty.
+- [x] **M3.5 — Identification decision:** lock the primary control group and state whether the final claim may be causal or must remain descriptive.
 
 ### Exit gate P3
 
@@ -184,6 +189,8 @@ Pass when the full analysis panel is reproduced by one command, all critical tes
 - raw event-time plot
 - pre-trend diagnostic note
 - locked primary control specification
+
+**Recorded decision (2026-07-22): `PASS WITH LIMITATIONS`.** The primary specification uses 120 cohort-control assignments: three unique pre-period-matched cohort-local controls for each of 40 treated stations. All selected stations have complete 12/12 windows, selection uses no post-treatment outcome, the aggregate matched raw pre-trend gap is 0.21 percentage points per month, and no corridor crosses the locked 3-point monthly raw-slope warning. However, the two-way-clustered four-bin pre-treatment placebo-lead test rejects exact zero (`F(4,11) = 4.41`, `p = 0.023`), the largest individual lead is −16.3% (below the locked 20% automatic-failure materiality threshold), matched covariate balance remains weak for the sparse 2024-11 and 2024-12 cohorts, four corridors have a single treated station, all dates have medium confidence, and eight stations lie near multiple eligible corridors. Phase 4 is authorized, but the causal interpretation is conditional and must remain narrow. See `reports/phase3a_diagnostics.md` and `reports/phase3_identification_decision.md`.
 
 ---
 
@@ -295,4 +302,4 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ## Immediate next action
 
-Begin M2.1: convert the Phase 1 audit script into the configured one-command data build, lock dependencies, and add critical data tests before constructing the analysis panel.
+Begin Phase 4 on the frozen Phase 3 matched sample. Implement M4.1 only as transparent baselines, then M4.2/M4.3 group-time ATT and event-study dynamics; do not promote PPML to headline until the pre-specified reconciliation and heterogeneity conditions are checked.

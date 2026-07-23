@@ -1,0 +1,33 @@
+{
+  "balance_warned_cohorts": [
+    "2024-11",
+    "2024-12"
+  ],
+  "claim_scope": "causal, conditional on the locked diagnostics and explicitly limited timing/geographic scope",
+  "decision": "PASS WITH LIMITATIONS",
+  "hard_failures": [],
+  "lead_failure_joint_alpha": 0.05,
+  "lead_failure_materiality_percent": 20.0,
+  "limitations": [
+    "Matched pre-period covariate balance remains weak for cohort(s): 2024-11, 2024-12",
+    "the four-bin pre-treatment placebo-lead test rejects exact zero; this is a material identification limitation",
+    "4 corridor(s) are represented by only one treated station",
+    "all treatment dates are first-verified months with medium confidence",
+    "8 treated stations have multiple corridor exposure"
+  ],
+  "matched_control_rows": 120,
+  "matching_controls_per_treated": 3,
+  "max_abs_pretrend_lead_percent": 16.277671931896098,
+  "overall_matched_pretrend_gap_pct_points_per_month": 0.20934666113179692,
+  "phase4_authorized": true,
+  "pretrend_lead_joint_pvalue": 0.022650910434279335,
+  "primary_control_specification": "pre_period_matched",
+  "singleton_corridors": [
+    "16TH_CENTRAL_PARK_KEDZIE_2024",
+    "CANAL_ROOSEVELT_TAYLOR_2024",
+    "FRANKLIN_CENTRAL_PARK_SACRAMENTO_2024",
+    "PAULINA_CONGRESS_WARREN_2024"
+  ],
+  "warned_cohorts": [],
+  "warned_corridors": []
+}

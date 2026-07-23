@@ -13,3 +13,12 @@ make phase2
 ```
 
 Missing station-months are preserved as missing. The build never creates zero-trip rows.
+
+Phase 3 is split into two reproducible checkpoints:
+
+```bash
+make phase3a
+make phase3b
+```
+
+Phase 3 outputs are tracked under `reports/`; no additional derived Parquet data are committed.
