@@ -4,7 +4,7 @@ This project studies whether newly completed protected bike-lane corridors in Ch
 
 ## Current status
 
-**Phase 3 complete — `PASS WITH LIMITATIONS`.** Phase 3A compares broad, cohort-local, and pre-period-matched control pools; Phase 3B locks 120 matched control assignments (3 per treated station) and runs pre-treatment-only placebo-lead diagnostics. The treated-station-weighted matched raw pre-trend gap is 0.21 percentage points per month, but the two-way-clustered four-bin lead test rejects exact zero (`F(4,11) = 4.41`, `p = 0.023`) and balance remains weak in two sparse cohorts. Phase 4 may proceed, but causal claims must remain narrow and conditional. No post-treatment ATT has been estimated.
+**Phase 4 complete — `PASS`.** The locked group-time ATT is **−10.8%** with a 95% interval of **[−24.0%, 2.3%]**. Cohort-stacked PPML is **−4.8%** with a 95% interval of **[−18.6%, 11.2%]**; the samples reconcile and the intervals overlap. PPML is not promoted to headline because cohort effects are materially heterogeneous and two cohorts have only one treated corridor. The result does not provide evidence that the installations increased monthly Divvy trip starts. The Phase 3 pre-treatment warning still prevents an unconditional causal claim.
 
 The limitations are conservative first-verified timing for nine corridors, multiple-corridor exposure for a small number of stations, and the absence of monthly station coordinates. See [`reports/feasibility_report.md`](reports/feasibility_report.md).
 
@@ -52,11 +52,12 @@ Key tracked inputs and outputs:
 - `reports/data_quality_report.md`
 - `reports/panel_build_summary.json`
 
-## Reproducible Phase 3 checkpoints
+## Reproducible Phase 3–4 checkpoints
 
 ```bash
 make phase3a  # raw trends, control comparison, matching, composition
 make phase3b  # pre-treatment leads and identification gate
+make phase4   # baselines, group-time ATT, event study, PPML, P4 gate
 ```
 
-The next task is Phase 4 estimation on the locked matched sample. Group-time ATT remains the primary identification/dynamics estimator; staggered-robust PPML is a conditional candidate for the headline percentage magnitude.
+The next task is Phase 5 robustness and falsification. The Phase 4 aggregate remains provisional until radius, control, corridor, timing, treatment-variant, outcome, and placebo checks are complete.

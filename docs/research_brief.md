@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.6 — Phase 3 control design and identification gate recorded)
+# Project B — Research Brief (v0.7 — Phase 4 estimator registry and results recorded)
 
 ## Working title
 
@@ -6,7 +6,7 @@
 
 ## Status
 
-Phase 3 complete with `PASS WITH LIMITATIONS`. The matched control design is frozen and Phase 4 estimation is authorized, but the pre-treatment lead warning and sparse-cohort balance prevent an unconditional causal claim.
+Phase 4 complete with `PASS`. The matched control design remains frozen. The group-time ATT is the registered headline because cohort heterogeneity disqualifies PPML; Phase 5 robustness remains required before final reporting.
 
 ## Research question
 
@@ -32,7 +32,7 @@ The average treatment effect on treated station-months: the change in monthly Di
 - `new_protected` and `protection_upgrade` are retained as separate treatment variants. The primary feasibility sample includes both; the required M5.5 robustness result uses `new_protected` only.
 - The verified completion month is a transition month and is excluded from estimation. `first_post_month` is the following calendar month; the 12-month pre-window ends immediately before the transition month.
 - A station within 300 m of multiple eligible corridors is assigned the earliest verified treatment month; ties are assigned to the nearest corridor while retaining a multiple-exposure flag.
-- Nine 2024 corridors use December as a conservative **first verified usable month** because CDOT records the installation year and a dated field audit documented the completed facilities on 2024-12-28/2025-01-01. These are medium-confidence dates, not claimed opening dates. Phase 4 must report an exact-date-only sensitivity result, and Phase 5 must test timing shifts for these corridors.
+- Nine inventory corridors use December as a conservative **first verified usable month** because CDOT records the installation year and a dated field audit documented the completed facilities on 2024-12-28/2025-01-01; seven of those conservative corridors enter the stable 40-station primary sample. These are medium-confidence dates, not claimed opening dates. Phase 4 reports a specific-date subset excluding those seven corridors, and Phase 5 must test timing shifts.
 - Corridors without a medium- or high-confidence month, without matched geometry, or without a stable Divvy station inside 300 m cannot enter the primary analysis. They remain in the inventory so exclusions are auditable.
 
 ## Unit definitions
@@ -99,6 +99,18 @@ Use staggered difference-in-differences with group-time treatment effects and an
 
 PPML enters per the locked division of labor above: it may supply the headline percentage magnitude only when the conditions stated there hold. Plain TWFE-OLS and pooled PPML-TWFE baselines are run first for transparency, with the known caveat that TWFE-style estimators under staggered adoption and heterogeneous effects can be biased by negative weighting.
 
+## Phase 4 estimator registry
+
+The matched-panel group-time estimator implements the Callaway–Sant’Anna group-time identification logic with never-treated matched controls and `event_time = -2` as the universal base. It estimates effects on monthly trip counts, then translates the aggregate count ATT to a percentage of the estimated treated counterfactual mean. The cohort-stacked PPML uses stack-station and stack-calendar fixed effects on the identical treatment/control contract. Main uncertainty is two-way clustered by treated corridor and reused control station, with t critical values based on 11 corridor degrees of freedom.
+
+- TWFE OLS log baseline: −1.6% (95% CI −8.9% to 6.2%).
+- Pooled PPML-TWFE baseline: −4.3% (95% CI −10.4% to 2.2%).
+- Primary group-time ATT: −10.8% (95% CI −24.0% to 2.3%).
+- Cohort-stacked PPML: −4.8% (95% CI −18.6% to 11.2%).
+- Specific-date group-time subset: −11.0% (95% CI −34.7% to 12.7%).
+
+The CS–PPML point gap is 6.0 percentage points, both estimates have the same sign, and their intervals overlap, so the divergence protocol is not triggered. PPML is nevertheless ineligible for headline status: CS cohort effects span 61.8 percentage points on the common counterfactual scale and PPML cohort effects span 33.3 points, both above the locked 20-point threshold; moreover, two cohorts contain only one treated corridor, so formal cohort-specific few-cluster inference is not reliable. The registered Phase 4 headline is therefore the group-time ATT. Its interval includes zero, so the evidence does not establish an increase in Divvy trip starts.
+
 ## Feasibility gates
 
 Proceed to full analysis only if all critical gates pass:
@@ -122,4 +134,4 @@ If the gates fail, options are to narrow the research claim, change the outcome/
 
 ## Immediate next checkpoint
 
-Run Phase 4 on the frozen Phase 3 matched sample. Reconcile group-time ATT and staggered-robust PPML on the same observations, report the full cohort/event-time structure, and carry the P3 pre-treatment warning into every causal interpretation.
+Run Phase 5 robustness and falsification against the frozen Phase 4 registry. The final claim must retain the P3 pre-treatment warning, the Phase 4 null-inclusive interval, and the observed cohort heterogeneity regardless of which sensitivity specifications are most favorable.

@@ -1,0 +1,9 @@
+first_post_month,effect_count,cohort_counterfactual_diagnostic,effect_percent,percent_scale,se_percent,ci_low_percent,ci_high_percent,treated_stations,treated_corridors,estimator
+2024-08,-49.552083,1182.125000,-4.973631,common main-sample counterfactual mean,4.804989,-15.549342,5.602079,16.000000,2.000000,group_time_att
+2024-11,139.222222,-108.805556,13.973984,common main-sample counterfactual mean,0.171372,13.596796,14.351172,1.000000,1.000000,group_time_att
+2024-12,-476.455556,1266.305556,-47.822699,common main-sample counterfactual mean,1.387770,-50.877160,-44.768238,5.000000,1.000000,group_time_att
+2025-01,-71.302469,817.506173,-7.156757,common main-sample counterfactual mean,5.378276,-18.994262,4.680748,18.000000,8.000000,group_time_att
+2024-08,,,6.438514,,1.092305,4.034367,8.842661,,,cohort_stacked_ppml
+2024-11,,,-15.219400,,1.255029,-17.981700,-12.457101,,,cohort_stacked_ppml
+2024-12,,,-26.829707,,1.757355,-30.697619,-22.961795,,,cohort_stacked_ppml
+2025-01,,,-8.915734,,6.404910,-23.012845,5.181378,,,cohort_stacked_ppml

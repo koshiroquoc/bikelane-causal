@@ -2,10 +2,10 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.6 (v0.6 records the split Phase 3A/3B workflow, locked matched controls, and P3 decision)
-**Plan date:** 2026-07-22
-**Expected remaining effort:** approximately 24–36 focused hours over 2–3 weeks.
-**Current phase:** Phase 4 — Main estimation.
+**Plan version:** 0.7 (v0.7 records the completed estimator registry and P4 decision)
+**Plan date:** 2026-07-24
+**Expected remaining effort:** approximately 16–24 focused hours over 1–2 weeks.
+**Current phase:** Phase 5 — Robustness and falsification.
 
 ## Status legend
 
@@ -203,12 +203,12 @@ Pass when the full analysis panel is reproduced by one command, all critical tes
 
 ### Milestones
 
-- [ ] **M4.1 — Simple baselines:** TWFE-OLS and pooled PPML-TWFE with a single treatment dummy, as transparent reference estimates only — never headline candidates.
-- [ ] **M4.2 — Group-time ATT:** primary estimator for causal identification, dynamics, and cohort heterogeneity under staggered adoption; its pre-treatment coefficients inform the P3 decision together with the full diagnostic set, per the division of labor locked in the research brief.
-- [ ] **M4.3 — Event study:** dynamic effects and pre-treatment coefficients.
-- [ ] **M4.4 — Staggered-robust PPML:** develop a cohort-stacked or event-time-saturated PPML specification as the candidate for the headline percentage magnitude (`exp(β) − 1`). It is promoted to headline only under the conditions locked in the research brief (P3 pass, reconciled sample, no severe cohort heterogeneity, staggered-robust specification); otherwise the headline comes from M4.2 translated to the percentage scale. The pre-specified divergence protocol applies whenever M4.2 and M4.4 disagree materially.
-- [ ] **M4.5 — Inference:** corridor-clustered uncertainty and few-cluster correction where supported.
-- [ ] **M4.6 — Results registry:** every planned specification reported on the same audited sample with effect size and confidence interval.
+- [x] **M4.1 — Simple baselines:** TWFE-OLS and pooled PPML-TWFE with a single treatment dummy, as transparent reference estimates only — never headline candidates.
+- [x] **M4.2 — Group-time ATT:** primary estimator for causal identification, dynamics, and cohort heterogeneity under staggered adoption; its pre-treatment coefficients inform the P3 decision together with the full diagnostic set, per the division of labor locked in the research brief.
+- [x] **M4.3 — Event study:** dynamic effects and pre-treatment coefficients.
+- [x] **M4.4 — Staggered-robust PPML:** develop a cohort-stacked or event-time-saturated PPML specification as the candidate for the headline percentage magnitude (`exp(β) − 1`). It is promoted to headline only under the conditions locked in the research brief (P3 pass, reconciled sample, no severe cohort heterogeneity, staggered-robust specification); otherwise the headline comes from M4.2 translated to the percentage scale. The pre-specified divergence protocol applies whenever M4.2 and M4.4 disagree materially.
+- [x] **M4.5 — Inference:** two-way corridor/control-station clustering for the matched estimators, t critical values based on 11 corridor degrees of freedom, and explicit non-identification of cohort-specific uncertainty when a cohort contains only one treated corridor.
+- [x] **M4.6 — Results registry:** every planned specification reported with effect size, confidence interval, sample role, and convergence status.
 
 ### Exit gate P4
 
@@ -220,6 +220,8 @@ Pass when all pre-specified estimators run on reconciled samples, results are ex
 - primary event-study figure
 - estimator/sample reconciliation table
 - one-paragraph interpretation matched to the P3 identification decision
+
+**Recorded decision (2026-07-24): `PASS`.** All planned estimators converge and the primary group-time ATT and cohort-stacked PPML reconcile to the same 40 treated stations, 120 matched control assignments, four cohorts, and 24-month stack window. The group-time ATT is −10.8% (95% CI −24.0% to 2.3%); cohort-stacked PPML is −4.8% (95% CI −18.6% to 11.2%). Their 6.0-point gap does not trigger the divergence rule and their intervals overlap. Both cohort aggregations exceed the locked 20-point heterogeneity threshold, while two cohorts have only one treated corridor; PPML is therefore ineligible for headline status and the group-time ATT is retained. The specific-date subset is −11.0% (95% CI −34.7% to 12.7%). The evidence does not establish an increase, and the P3 lead warning remains part of every causal interpretation. See `reports/phase4_results.md`.
 
 ---
 
@@ -302,4 +304,4 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ## Immediate next action
 
-Begin Phase 4 on the frozen Phase 3 matched sample. Implement M4.1 only as transparent baselines, then M4.2/M4.3 group-time ATT and event-study dynamics; do not promote PPML to headline until the pre-specified reconciliation and heterogeneity conditions are checked.
+Begin Phase 5 with the locked Phase 4 registry. Run radius and control sensitivity first, then leave-one-corridor-out, timing, treatment-variant, outcome, and placebo analyses; do not revise the Phase 4 headline based on which robustness result is most favorable.

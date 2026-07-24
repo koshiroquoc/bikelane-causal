@@ -1,0 +1,72 @@
+{
+  "all_models_converged": true,
+  "control_assignments": 120,
+  "cs_heterogeneity": {
+    "df_den": 11,
+    "df_num": 3,
+    "f_statistic": 48833.80272199367,
+    "inference_reliable": false,
+    "min_treated_corridors_per_cohort": 1,
+    "pvalue": 5.833172713601152e-23,
+    "range_pct_points": 61.79668299102369,
+    "severe": true
+  },
+  "divergence": {
+    "confidence_intervals_overlap": true,
+    "material_unresolved": false,
+    "opposite_signs": false,
+    "point_gap_pct_points": 5.990034862818759,
+    "raw_point_rule_triggered": false
+  },
+  "headline": {
+    "ci_high_percent": 2.316391935451785,
+    "ci_low_percent": -23.993353681251854,
+    "control_station_clusters": 83,
+    "corridor_clusters": 12,
+    "counterfactual_mean": 996.2958333333335,
+    "effect_count": -107.98333333333335,
+    "effect_percent": -10.838480872900035,
+    "estimator": "group_time_att",
+    "se_count": 59.95500593036583,
+    "se_percent": 5.976811223844924
+  },
+  "p3_decision": "PASS WITH LIMITATIONS",
+  "p3_limitations": [
+    "Matched pre-period covariate balance remains weak for cohort(s): 2024-11, 2024-12",
+    "the four-bin pre-treatment placebo-lead test rejects exact zero; this is a material identification limitation",
+    "4 corridor(s) are represented by only one treated station",
+    "all treatment dates are first-verified months with medium confidence",
+    "8 treated stations have multiple corridor exposure"
+  ],
+  "p4_decision": "PASS",
+  "ppml_headline_eligible": false,
+  "ppml_heterogeneity": {
+    "df_den": 11,
+    "df_num": 3,
+    "f_statistic": 118.92893345382161,
+    "inference_reliable": false,
+    "min_treated_corridors_per_cohort": 1,
+    "pvalue": 1.1531401044245498e-08,
+    "range_pct_points": 33.268221064466,
+    "severe": true
+  },
+  "sample_reconciled": true,
+  "specific_timing_sensitivity": {
+    "ci_high_percent": 12.678251614267491,
+    "ci_low_percent": -34.671813645540055,
+    "control_station_clusters": 57,
+    "corridor_clusters": 5,
+    "counterfactual_mean": 1090.1759259259259,
+    "effect_count": -119.88425925925925,
+    "effect_percent": -10.99678101563628,
+    "se_count": 96.59210363752457,
+    "se_percent": 8.527102727722458,
+    "treated_corridors": 5,
+    "treated_stations": 24
+  },
+  "stacked_panel_rows": 3840,
+  "stacked_panel_stations": 160,
+  "treated_stations": 40,
+  "treatment_effect_read_after_p3_gate": true,
+  "unique_control_stations": 83
+}

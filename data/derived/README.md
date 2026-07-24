@@ -22,3 +22,11 @@ make phase3b
 ```
 
 Phase 3 outputs are tracked under `reports/`; no additional derived Parquet data are committed.
+
+Build the locked Phase 4 stacked panel, run all estimators, and verify the results registry with:
+
+```bash
+make phase4
+```
+
+`phase4_stacked_panel.parquet` is reproducible and ignored by Git. Phase 4 tables, summaries, and figures are tracked under `reports/`.

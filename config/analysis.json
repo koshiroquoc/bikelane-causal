@@ -24,6 +24,24 @@
     "lead_materiality_percent": 20.0,
     "lead_warning_percent": 10.0
   },
+  "phase4": {
+    "event_reference": -2,
+    "event_min": -13,
+    "event_max": 11,
+    "heterogeneity_alpha": 0.05,
+    "heterogeneity_materiality_pct_points": 20.0,
+    "divergence_sign_materiality_percent": 5.0,
+    "divergence_gap_pct_points": 10.0,
+    "conservative_timing_corridors": [
+      "16TH_CENTRAL_PARK_KEDZIE_2024",
+      "CANAL_ROOSEVELT_TAYLOR_2024",
+      "HARRISON_ASHLAND_HALSTED_2024",
+      "JACKSON_OAKLEY_OGDEN_2024",
+      "PAULINA_CONGRESS_WARREN_2024",
+      "TAYLOR_MORGAN_CANAL_2024",
+      "WABASH_ROOSEVELT_BALBOA_2024"
+    ]
+  },
   "primary_treatment_variants": [
     "new_protected",
     "protection_upgrade"
@@ -47,6 +65,14 @@
     "phase3_pretrend_leads_summary": "reports/phase3_pretrend_leads_summary.json",
     "phase3_gate_report": "reports/phase3_identification_decision.md",
     "phase3_gate_summary": "reports/phase3_gate_summary.json",
+    "phase4_stacked_panel": "data/derived/phase4_stacked_panel.parquet",
+    "phase4_group_time_att": "reports/phase4_group_time_att.csv",
+    "phase4_event_study": "reports/phase4_event_study.csv",
+    "phase4_cohort_effects": "reports/phase4_cohort_effects.csv",
+    "phase4_sample_reconciliation": "reports/phase4_sample_reconciliation.csv",
+    "phase4_results_registry": "reports/phase4_results_registry.csv",
+    "phase4_summary": "reports/phase4_summary.json",
+    "phase4_report": "reports/phase4_results.md",
     "build_summary": "reports/panel_build_summary.json",
     "quality_report": "reports/data_quality_report.md"
   }

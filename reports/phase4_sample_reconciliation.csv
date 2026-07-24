@@ -1,0 +1,3 @@
+estimator,representation,treated_stations,control_assignments,unique_control_stations,cohorts,analysis_months_per_stack,transition_excluded
+group_time_att,matched pair changes,40,120,83,4,24,True
+cohort_stacked_ppml,cohort-stacked station-month panel,40,120,83,4,24,True

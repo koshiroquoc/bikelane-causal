@@ -1,0 +1,6 @@
+estimator,role,model,coefficient_log_points,se_log_points,effect_percent,ci_low_percent,ci_high_percent,converged,model_rows,treated_stations,control_stations,effect_count,se_count,counterfactual_mean,se_percent,corridor_clusters,control_station_clusters,treated_corridors
+twfe_ols_log1p_baseline,transparency baseline; never headline,OLS log(1+y),-0.016547,0.038513,-1.641083,-8.861306,6.151143,True,4378.000000,40,83.000000,,,,,,,
+pooled_ppml_twfe_baseline,transparency baseline; never headline,Poisson PML,-0.044398,0.033198,-4.342729,-10.427005,2.154824,True,4378.000000,40,83.000000,,,,,,,
+group_time_att,primary identification and dynamics,matched panel group-time ATT on counts,,,-10.838481,-23.993354,2.316392,True,120.000000,40,83.000000,-107.983333,59.955006,996.295833,5.976811,12.000000,83.000000,
+cohort_stacked_ppml,conditional headline percentage magnitude,cohort-stacked Poisson PML,-0.049699,0.070971,-4.848446,-18.608990,11.238554,True,3840.000000,40,83.000000,,,,,,,
+group_time_att_specific_timing,required specific-date sensitivity,matched group-time ATT excluding conservative first-verified dates,,,-10.996781,-34.671814,12.678252,True,,24,,-119.884259,96.592104,1090.175926,8.527103,5.000000,57.000000,5.000000
