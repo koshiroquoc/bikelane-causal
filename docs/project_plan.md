@@ -2,10 +2,10 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.7 (v0.7 records the completed estimator registry and P4 decision)
-**Plan date:** 2026-07-24
-**Expected remaining effort:** approximately 16–24 focused hours over 1–2 weeks.
-**Current phase:** Phase 5 — Robustness and falsification.
+**Plan version:** 0.8 (v0.8 records the completed robustness registry and P5 decision)
+**Plan date:** 2026-07-25
+**Expected remaining effort:** approximately 6–10 focused hours.
+**Current phase:** Phase 6 — Report and portfolio release.
 
 ## Status legend
 
@@ -234,18 +234,20 @@ Pass when all pre-specified estimators run on reconciled samples, results are ex
 
 ### Required milestones
 
-- [ ] **M5.1 — Radius sensitivity:** pre-specified inner/donut combinations.
-- [ ] **M5.2 — Control sensitivity:** local versus broader eligible controls.
-- [ ] **M5.3 — Leave-one-corridor-out:** identify influential corridors.
-- [ ] **M5.4 — Construction-window sensitivity:** exclude transition months around completion.
-- [ ] **M5.5 — Treatment variant:** new protected lanes only versus all newly physically protected corridors.
-- [ ] **M5.6 — Outcome heterogeneity:** member versus casual trips.
-- [ ] **M5.7 — Timing placebo:** verify that a fake pre-treatment date does not reproduce the main effect.
-- [ ] **M5.8 — Geography placebo (matched pseudo-corridors, pipeline-level null distribution):** build a pool of pseudo-corridors from streets with no protected lane, **matched to the real treatment corridors** on corridor length, geographic area, nearby-station count, and baseline ridership/pre-period trend, and screened to exclude streets with concurrent transport projects or lying near a real treatment corridor. Each replication draws the same number of pseudo-corridors as real corridors and assigns install months preserving the real cohort distribution, then reruns the full assignment-to-estimate pipeline; 100–200 replications build the null ATT distribution, and the real estimate should sit in its tail. Matching is what gives the null distribution meaning — unmatched random streets (different density, ridership, geography) would produce an artificially easy null. This tests the entire pipeline, not just the model, and presupposes the one-command build from P2. If compute or time binds, reduce replications (e.g. to 50) rather than dropping the milestone or weakening the matching.
+- [x] **M5.1 — Radius sensitivity:** pre-specified inner/donut combinations.
+- [x] **M5.2 — Control sensitivity:** local versus broader eligible controls.
+- [x] **M5.3 — Leave-one-corridor-out:** identify influential corridors.
+- [x] **M5.4 — Construction-window sensitivity:** exclude transition months around completion.
+- [x] **M5.5 — Treatment variant:** new protected lanes only versus all newly physically protected corridors.
+- [x] **M5.6 — Outcome heterogeneity:** member versus casual trips.
+- [x] **M5.7 — Timing placebo:** verify that a fake pre-treatment date does not reproduce the main effect.
+- [x] **M5.8 — Geography placebo (matched pseudo-corridors, pipeline-level null distribution):** build a pool of pseudo-corridors from streets with no protected lane, **matched to the real treatment corridors** on corridor length, geographic area, nearby-station count, and baseline ridership/pre-period trend, and screened to exclude streets with concurrent transport projects or lying near a real treatment corridor. Each replication draws the same number of pseudo-corridors as real corridors and assigns install months preserving the real cohort distribution, then reruns the full assignment-to-estimate pipeline; 100–200 replications build the null ATT distribution, and the real estimate should sit in its tail. Matching is what gives the null distribution meaning — unmatched random streets (different density, ridership, geography) would produce an artificially easy null. This tests the entire pipeline, not just the model, and presupposes the one-command build from P2. If compute or time binds, reduce replications (e.g. to 50) rather than dropping the milestone or weakening the matching.
 
 ### Exit gate P5
 
 Pass does not require every coefficient to be significant. It requires the reported conclusion to remain honest under the observed sensitivity pattern and to name any corridor/specification that materially changes it.
+
+**Recorded decision (2026-07-25): `PASS WITH LIMITATIONS`.** Radius estimates are tightly grouped from −12.1% to −10.7%, construction-window estimates from −12.1% to −10.8%, both secondary outcomes remain negative, and the new-protected-only estimate is −8.6%. The fake-date estimate is 2.4% (95% CI −5.1% to 10.0%), so it does not reproduce the main result. Leave-one-corridor-out estimates remain negative from −15.0% to −5.8%; omitting Halsted/Roosevelt/Van Buren moves the point estimate by 5.1 percentage points and is named as influential. Local and broad unmatched control points are −5.0% and −17.2%, and shifting conservative dates one month earlier produces −14.5% with a CI excluding zero; these specifications are reported rather than used to select a headline. Fifty fixed-seed, pipeline-level matched geography placebos have median 3.2% and central 90% interval −9.0% to 15.1%; the real −10.8% estimate has two-sided empirical tail probability 0.235, so it does not meet the locked 10% tail criterion. The conclusion remains that the data do not establish an increase, but the geography falsification prevents upgrading this to a clean causal claim. See `reports/phase5_robustness.md`.
 
 ### P5 deliverables
 

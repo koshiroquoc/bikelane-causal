@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.7 — Phase 4 estimator registry and results recorded)
+# Project B — Research Brief (v0.8 — Phase 5 robustness and falsification recorded)
 
 ## Working title
 
@@ -6,7 +6,7 @@
 
 ## Status
 
-Phase 4 complete with `PASS`. The matched control design remains frozen. The group-time ATT is the registered headline because cohort heterogeneity disqualifies PPML; Phase 5 robustness remains required before final reporting.
+Phase 5 complete with `PASS WITH LIMITATIONS`. The group-time ATT remains the registered headline; the full robustness pattern supports “no established increase” but the geography placebo prevents upgrading the result to a clean causal claim. Phase 6 reporting remains.
 
 ## Research question
 
@@ -111,6 +111,22 @@ The matched-panel group-time estimator implements the Callaway–Sant’Anna gro
 
 The CS–PPML point gap is 6.0 percentage points, both estimates have the same sign, and their intervals overlap, so the divergence protocol is not triggered. PPML is nevertheless ineligible for headline status: CS cohort effects span 61.8 percentage points on the common counterfactual scale and PPML cohort effects span 33.3 points, both above the locked 20-point threshold; moreover, two cohorts contain only one treated corridor, so formal cohort-specific few-cluster inference is not reliable. The registered Phase 4 headline is therefore the group-time ATT. Its interval includes zero, so the evidence does not establish an increase in Divvy trip starts.
 
+## Phase 5 robustness and falsification registry
+
+The Phase 5 alternatives were locked in `config/analysis.json` before the robustness coefficients were read. Radius designs use 200/600 m, 300/800 m, and 400/1,000 m treated/donut rules. The 400/1,000 m design uses the feasibility fallback of two rather than three matched controls per treated station because its 2024-08 local pool contains 51 controls for 22 treated stations; this support constraint was identified before reading its effect. Unmatched local and broad pools are point-estimate comparators only. The locked influential rule is a sign reversal or an absolute movement of at least five percentage points; a CI classification change is also named.
+
+- Radius results: −10.7%, −10.8%, and −12.1%.
+- Excluding event months 0 or 0–1: −11.2% and −12.1%.
+- `new_protected` only: −8.6% (95% CI −25.6% to 8.4%).
+- Member trips: −12.7% (95% CI −28.0% to 2.6%); casual trips: −6.9% (95% CI −15.5% to 1.7%).
+- Conservative dates shifted one month earlier/current/later: −14.5%, −10.8%, and −8.6%; the one-month-earlier CI excludes zero, so timing remains influential even though it does not reverse the substantive direction.
+- Local and broad unmatched control points: −5.0% and −17.2%; both cross the locked five-point movement rule and are not promoted over the matched design.
+- Leave one corridor out: −15.0% to −5.8%. Halsted/Roosevelt/Van Buren is influential at +5.1 points; no omission reverses the sign.
+- Fake first-post month six months early, using only real event months −6 through −2: 2.4% (95% CI −5.1% to 10.0%).
+- Fifty fixed-seed matched geography placebo replications: median 3.2%, central 90% interval −9.0% to 15.1%, and two-sided empirical tail probability 0.235 for the real −10.8% estimate. The real result is therefore not in the locked 10% tail.
+
+Pseudo-corridors come from the official current bike-route file, exclude protected facilities and any street name containing a protected segment, and remain at least 1,200 m from all corridors in the locked 2024–2025 candidate inventory. Matching uses corridor length, projected centroid coordinates, nearby-station count, baseline ridership, and pre-period slope. The candidate inventory is the available concurrent-project screen, not a complete citywide construction registry. Each accepted replication draws 12 pseudo-corridors, preserves the four real cohort assignments, repeats station/donut assignment, enforces 12/12 support, rematches controls, and re-estimates the ATT.
+
 ## Feasibility gates
 
 Proceed to full analysis only if all critical gates pass:
@@ -134,4 +150,4 @@ If the gates fail, options are to narrow the research claim, change the outcome/
 
 ## Immediate next checkpoint
 
-Run Phase 5 robustness and falsification against the frozen Phase 4 registry. The final claim must retain the P3 pre-treatment warning, the Phase 4 null-inclusive interval, and the observed cohort heterogeneity regardless of which sensitivity specifications are most favorable.
+Run Phase 6 reporting and portfolio release. The final claim must retain the P3 pre-treatment warning, the Phase 4 null-inclusive interval, cohort heterogeneity, influential Halsted omission, timing sensitivity, and the geography-placebo failure regardless of which specifications are most favorable.

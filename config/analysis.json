@@ -42,6 +42,46 @@
       "WABASH_ROOSEVELT_BALBOA_2024"
     ]
   },
+  "phase5": {
+    "specification_locked_before_run": "2026-07-25",
+    "radius_specs": [
+      {
+        "name": "inner_200_donut_600",
+        "treated_radius_m": 200,
+        "donut_outer_m": 600
+      },
+      {
+        "name": "primary_300_donut_800",
+        "treated_radius_m": 300,
+        "donut_outer_m": 800
+      },
+      {
+        "name": "outer_400_donut_1000",
+        "treated_radius_m": 400,
+        "donut_outer_m": 1000
+      }
+    ],
+    "radius_matching_ratio_fallback": 2,
+    "control_pools": [
+      "pre_period_matched",
+      "cohort_local",
+      "broad"
+    ],
+    "construction_post_starts": [0, 1, 2],
+    "timing_shifts_months": [-1, 0, 1],
+    "timing_placebo_shift_months": -6,
+    "timing_placebo_post_end": 4,
+    "influential_corridor_change_pct_points": 5,
+    "geography_placebo": {
+      "seed": 20260725,
+      "replications": 50,
+      "max_attempts": 1000,
+      "candidate_min_length_miles": 0.15,
+      "candidate_max_length_miles": 3.5,
+      "real_corridor_buffer_m": 1200,
+      "shortlist_per_real_corridor": 12
+    }
+  },
   "primary_treatment_variants": [
     "new_protected",
     "protection_upgrade"
@@ -73,6 +113,12 @@
     "phase4_results_registry": "reports/phase4_results_registry.csv",
     "phase4_summary": "reports/phase4_summary.json",
     "phase4_report": "reports/phase4_results.md",
+    "phase5_robustness": "reports/phase5_robustness.csv",
+    "phase5_loco": "reports/phase5_leave_one_corridor_out.csv",
+    "phase5_geography_placebo": "reports/phase5_geography_placebo.csv",
+    "phase5_geography_candidates": "reports/phase5_geography_candidates.csv",
+    "phase5_summary": "reports/phase5_summary.json",
+    "phase5_report": "reports/phase5_robustness.md",
     "build_summary": "reports/panel_build_summary.json",
     "quality_report": "reports/data_quality_report.md"
   }

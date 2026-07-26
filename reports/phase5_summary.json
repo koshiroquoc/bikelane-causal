@@ -1,0 +1,38 @@
+{
+  "geography_attempts": 138,
+  "geography_candidate_components": 40,
+  "geography_candidate_streets": 26,
+  "geography_empirical_pvalue": 0.23529411764705882,
+  "geography_median_percent": 3.229232518580263,
+  "geography_p05_percent": -9.040686811683509,
+  "geography_p95_percent": 15.107932194769607,
+  "geography_real_buffer_m": 1200.0,
+  "geography_replications": 50,
+  "geography_screen": "non-protected facility on a street name with no protected segment; outside the locked buffer around every 2024-2025 candidate corridor",
+  "geography_seed": 20260725,
+  "geography_tail_clear": false,
+  "influential_corridors": [
+    "HALSTED_ROOSEVELT_VAN_BUREN_2024"
+  ],
+  "influential_specifications": [
+    "broad",
+    "cohort local",
+    "conservative dates shifted -1 month"
+  ],
+  "influential_threshold_pct_points": 5.0,
+  "interpretation": "The main estimate still does not establish an increase, but robustness cannot upgrade that result to a clean causal claim because the real estimate is not in the locked 10% geography-placebo tail.",
+  "loco_max_percent": -5.778752679760443,
+  "loco_min_percent": -14.967673402011433,
+  "main_ci_high_percent": 2.316391935451785,
+  "main_ci_low_percent": -23.993353681251854,
+  "main_effect_percent": -10.838480872900035,
+  "p5_decision": "PASS WITH LIMITATIONS",
+  "radius_max_percent": -10.693835848458681,
+  "radius_min_percent": -12.146677761492487,
+  "robustness_rows": 16,
+  "specification_locked_before_run": "2026-07-25",
+  "timing_placebo_ci_high_percent": 9.966765000721121,
+  "timing_placebo_ci_low_percent": -5.110473816412976,
+  "timing_placebo_clear": true,
+  "timing_placebo_effect_percent": 2.428145592154073
+}

@@ -1,0 +1,17 @@
+milestone,specification,effect_percent,ci_low_percent,ci_high_percent,treated_stations,treated_corridors,control_stations,inference,notes
+M5.1 radius,200m treated / 600m donut,-10.693836,-23.833474,2.445803,26,11,65,two-way clustered 95% CI,3:1 pre-period matching within cohort-local pool
+M5.1 radius,300m treated / 800m donut,-10.838481,-23.993354,2.316392,40,12,83,two-way clustered 95% CI,3:1 pre-period matching within cohort-local pool
+M5.1 radius,400m treated / 1000m donut,-12.146678,-28.723204,4.429849,53,12,68,two-way clustered 95% CI,2:1 pre-period matching within cohort-local pool
+M5.2 controls,pre-period matched (primary),-10.838481,-23.993354,2.316392,40,12,83,two-way clustered 95% CI,
+M5.2 controls,cohort local,-4.986903,,,40,12,139,point estimate only,unequal reusable control pool
+M5.2 controls,broad,-17.182291,,,40,12,422,point estimate only,unequal reusable control pool
+M5.4 construction window,post starts at event +0,-10.838481,-23.993354,2.316392,40,12,83,two-way clustered 95% CI,
+M5.4 construction window,post starts at event +1,-11.153356,-24.166613,1.859900,40,12,83,two-way clustered 95% CI,
+M5.4 construction window,post starts at event +2,-12.108600,-25.101325,0.884126,40,12,83,two-way clustered 95% CI,
+M5.5 treatment variant,new protected only,-8.628488,-25.612731,8.355755,30,6,65,two-way clustered 95% CI,
+M5.6 outcome,member trips,-12.709471,-28.021889,2.602947,40,12,83,two-way clustered 95% CI,
+M5.6 outcome,casual trips,-6.912615,-15.510474,1.685245,40,12,83,two-way clustered 95% CI,
+M5.4 timing sensitivity,conservative dates shifted -1 month,-14.547208,-27.846933,-1.247483,40,12,83,two-way clustered 95% CI,
+M5.4 timing sensitivity,conservative dates shifted +0 month,-10.838481,-23.993354,2.316392,40,12,83,two-way clustered 95% CI,
+M5.4 timing sensitivity,conservative dates shifted +1 month,-8.584396,-20.993469,3.824678,40,12,83,two-way clustered 95% CI,
+M5.7 timing placebo,fake first-post 6 months early; fake events 0..4,2.428146,-5.110474,9.966765,40,12,83,two-way clustered 95% CI,

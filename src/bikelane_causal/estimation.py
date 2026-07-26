@@ -175,6 +175,7 @@ def build_pair_scores(
     assignment: pd.DataFrame,
     matches: pd.DataFrame,
     phase4: dict,
+    outcome_column: str = "total_trips",
 ) -> pd.DataFrame:
     reference = int(phase4["event_reference"])
     events = [
@@ -182,7 +183,9 @@ def build_pair_scores(
         for event in range(int(phase4["event_min"]), int(phase4["event_max"]) + 1)
         if event not in {-1, reference}
     ]
-    outcome = panel.pivot(index="station_id", columns="month", values="total_trips")
+    if outcome_column not in panel.columns:
+        raise ValueError(f"Outcome column not found: {outcome_column}")
+    outcome = panel.pivot(index="station_id", columns="month", values=outcome_column)
     treated_assignment = assignment[
         assignment.analysis_role.eq("primary_treated")
     ].set_index("station_id")
