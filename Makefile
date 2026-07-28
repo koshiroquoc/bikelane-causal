@@ -2,7 +2,7 @@ PYTHON := .venv/bin/python
 export PYTHONPATH := src
 export MPLCONFIGDIR := .scratch/matplotlib
 
-.PHONY: setup phase1 panel test test-phase2 diagnostics test-phase3a pretrend-leads gate test-phase3b estimate test-phase4 robustness test-phase5 phase2 phase3a phase3b phase3 phase4 phase5
+.PHONY: setup phase1 panel test test-phase2 diagnostics test-phase3a pretrend-leads gate test-phase3b estimate test-phase4 robustness test-phase5 release-assets test-phase6 phase2 phase3a phase3b phase3 phase4 phase5 release phase6 reproduce
 
 setup:
 	python3 -m venv .venv
@@ -47,6 +47,12 @@ robustness:
 test-phase5:
 	$(PYTHON) -m pytest tests/test_phase5_robustness.py
 
+release-assets:
+	$(PYTHON) -m bikelane_causal.release
+
+test-phase6:
+	$(PYTHON) -m pytest tests/test_phase6_release.py
+
 phase2: phase1 panel test-phase2
 
 phase3a: panel test-phase2 diagnostics test-phase3a
@@ -58,3 +64,9 @@ phase3: phase3b
 phase4: phase3b estimate test-phase4
 
 phase5: phase4 robustness test-phase5
+
+release: release-assets test-phase6
+
+phase6: phase5 release
+
+reproduce: phase6

@@ -1,4 +1,4 @@
-# Project B — Research Brief (v0.8 — Phase 5 robustness and falsification recorded)
+# Project B — Research Brief (v1.0 — portfolio release contract recorded)
 
 ## Working title
 
@@ -6,7 +6,7 @@
 
 ## Status
 
-Phase 5 complete with `PASS WITH LIMITATIONS`. The group-time ATT remains the registered headline; the full robustness pattern supports “no established increase” but the geography placebo prevents upgrading the result to a clean causal claim. Phase 6 reporting remains.
+Phase 6 complete with `PASS`. The group-time ATT remains the registered headline; the full robustness pattern supports “no established increase” but the identification and geography-placebo limitations prevent upgrading the result to a clean causal claim. The public language contract is recorded in `docs/claims_audit.md`.
 
 ## Research question
 
@@ -58,10 +58,10 @@ The exact valid window will be recomputed from the final treatment-month convent
 
 ## Project A input contract
 
-Read-only inputs:
+Read-only copied inputs, intentionally ignored by Git:
 
-- `/Users/nguyenvanquoc/Desktop/bikeshare-forecast/data/processed/station_master.parquet`
-- `/Users/nguyenvanquoc/Desktop/bikeshare-forecast/data/processed/station_month_panel.parquet`
+- `data/input/station_master.parquet`
+- `data/input/station_month_panel.parquet`
 
 Observed audit on 2026-07-20:
 
@@ -150,4 +150,4 @@ If the gates fail, options are to narrow the research claim, change the outcome/
 
 ## Immediate next checkpoint
 
-Run Phase 6 reporting and portfolio release. The final claim must retain the P3 pre-treatment warning, the Phase 4 null-inclusive interval, cohort heterogeneity, influential Halsted omission, timing sensitivity, and the geography-placebo failure regardless of which specifications are most favorable.
+Create the `v1.0.0` Git tag after the clean release commit is pushed. Any later public summary must retain the P3 pre-treatment warning, the Phase 4 null-inclusive interval, cohort heterogeneity, influential Halsted omission, timing sensitivity, and the geography-placebo failure.

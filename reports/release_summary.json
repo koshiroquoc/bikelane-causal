@@ -1,0 +1,58 @@
+{
+  "claims_contract": {
+    "allowed_final_claim": "The analysis does not establish an increase in nearby monthly Divvy trip starts; identification and geography-placebo limitations preclude a clean causal claim.",
+    "geography_tail_clear": false,
+    "phase3_decision": "PASS WITH LIMITATIONS",
+    "phase4_ci_high_percent": 2.316391935451785,
+    "phase4_ci_low_percent": -23.993353681251854,
+    "phase4_effect_percent": -10.838480872900035,
+    "phase5_decision": "PASS WITH LIMITATIONS"
+  },
+  "figures": [
+    {
+      "file": "reports/figures/study_design_map.png",
+      "height_px": 1813,
+      "width_px": 1432
+    },
+    {
+      "file": "reports/figures/phase3_pretrend_leads.png",
+      "height_px": 970,
+      "width_px": 1780
+    },
+    {
+      "file": "reports/figures/phase4_event_study.png",
+      "height_px": 1060,
+      "width_px": 1960
+    },
+    {
+      "file": "reports/figures/phase4_estimator_comparison.png",
+      "height_px": 970,
+      "width_px": 1777
+    },
+    {
+      "file": "reports/figures/phase5_radius_sensitivity.png",
+      "height_px": 844,
+      "width_px": 1597
+    },
+    {
+      "file": "reports/figures/phase5_leave_one_corridor_out.png",
+      "height_px": 1240,
+      "width_px": 1592
+    },
+    {
+      "file": "reports/figures/phase5_geography_placebo.png",
+      "height_px": 880,
+      "width_px": 1601
+    }
+  ],
+  "machine_specific_paths": [],
+  "p6_decision": "PASS",
+  "readme_required_sections_complete": true,
+  "readme_words": 947,
+  "release_version": "1.0.0",
+  "study_design": {
+    "matched_control_stations": 83,
+    "primary_corridors": 12,
+    "treated_stations": 40
+  }
+}

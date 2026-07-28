@@ -2,10 +2,10 @@
 
 **Working question:** Do newly protected bike-lane corridors change monthly Divvy trip starts at nearby stations?
 
-**Plan version:** 0.8 (v0.8 records the completed robustness registry and P5 decision)
-**Plan date:** 2026-07-25
-**Expected remaining effort:** approximately 6–10 focused hours.
-**Current phase:** Phase 6 — Report and portfolio release.
+**Plan version:** 1.0 (v1.0 records the completed portfolio release contract)
+**Plan date:** 2026-07-27
+**Expected remaining effort:** complete; only GitHub metadata and release tag remain after sync.
+**Current phase:** Phase 6 complete — ready for `v1.0.0` release.
 
 ## Status legend
 
@@ -268,12 +268,12 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ### Milestones
 
-- [ ] **M6.1 — Executive README:** question, estimand, design, map, main result, uncertainty, and limitations.
-- [ ] **M6.2 — Research memo:** methods and diagnostics in enough detail for technical review.
-- [ ] **M6.3 — Reproducibility:** documented setup and one-command analysis path.
-- [ ] **M6.4 — Visual QA:** every figure has units, sample definition, uncertainty, and readable labels.
-- [ ] **M6.5 — Claims audit:** every causal sentence is consistent with the P3 decision and robustness evidence.
-- [ ] **M6.6 — Portfolio packaging:** repository topics, short project description, resume bullets, and interview narrative.
+- [x] **M6.1 — Executive README:** question, estimand, design, map, main result, uncertainty, and limitations.
+- [x] **M6.2 — Research memo:** methods and diagnostics in enough detail for technical review.
+- [x] **M6.3 — Reproducibility:** documented setup and one-command analysis path.
+- [x] **M6.4 — Visual QA:** every figure has units, sample definition, uncertainty, and readable labels.
+- [x] **M6.5 — Claims audit:** every causal sentence is consistent with the P3 decision and robustness evidence.
+- [x] **M6.6 — Portfolio packaging:** repository topics, short project description, resume bullets, and interview narrative.
 
 ### Exit gate P6 / Definition of Done
 
@@ -282,6 +282,8 @@ Pass does not require every coefficient to be significant. It requires the repor
 - README communicates the project in roughly 90 seconds.
 - Limitations include Divvy-versus-total-cycling scope, treatment targeting, spillovers, station churn, timing uncertainty, and few-corridor inference.
 - Final tag: `v1.0.0`.
+
+**Recorded decision (2026-07-27): `PASS`.** The executive README now leads with the −10.8% estimate, null-inclusive interval, and explicit interpretation boundary; the technical memo records the full design and gate history; `make reproduce` rebuilds Phases 1–6; the final study map distinguishes 40 treated stations, 83 unique matched controls, and 12 corridors; all release figures pass the documented visual audit; the claims audit prohibits translating the negative point estimate into a causal decrease; and the repository includes ready-to-use GitHub metadata, resume bullets, and an interview narrative. Machine-specific paths were removed from public text, copied inputs and derived Parquet files remain ignored, and 28 automated tests pass. The analysis is ready for a clean release commit and `v1.0.0` tag.
 
 ---
 
@@ -306,4 +308,4 @@ Pass does not require every coefficient to be significant. It requires the repor
 
 ## Immediate next action
 
-Begin Phase 5 with the locked Phase 4 registry. Run radius and control sensitivity first, then leave-one-corridor-out, timing, treatment-variant, outcome, and placebo analyses; do not revise the Phase 4 headline based on which robustness result is most favorable.
+Sync the Phase 6 files, run `make reproduce`, review `git status`, commit the release package, push `main`, and create the annotated `v1.0.0` tag. Repository description and topics should use the prewritten text in `docs/portfolio_notes.md`.
